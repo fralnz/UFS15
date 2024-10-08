@@ -1,4 +1,4 @@
-package org.spring1.spring1;
+package org.UFS15.UFS15;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
