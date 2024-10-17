@@ -12,41 +12,37 @@ import jakarta.validation.Valid;
 
 @Controller
 public class ScuolaController {
-	ArrayList<Persona> utentiSalvati = new ArrayList();
+    ArrayList<Evento> utentiSalvati = new ArrayList();
 
-	@GetMapping("/")
-	public String index() {
-		return "index";
-	}
-	
-	@GetMapping("registrati")
-	public String registrati(Persona persona) {
-		return "registrati";
-	}
-	@GetMapping("registrati")
-	public String registrati(Model model) {
-		model.addAttribute("persona", new Persona());
-		return "registrati";
-	}
-	
-	@PostMapping("registrati")
-	public String registrati(@Valid Persona persona, BindingResult bindingResult) {
-		if(bindingResult.hasErrors())
-			return "registrati";
-		
-		utentiSalvati.add(persona);
-		
-		return "redirect:/utenti";
-	}
-	
-	@GetMapping("home")
-	public String home() {
-		return "home";
-	}
-	
-	@GetMapping("utenti")
-	public String utenti(Model model) {
-		model.addAttribute("utenti", utentiSalvati);
-		return "utenti";
-	}
+    @GetMapping("/")
+    public String index() {
+        return "index";
+    }
+
+    @GetMapping("registrati")
+    public String registrati(Model model) {
+        model.addAttribute("persona", new Evento());
+        return "registrati";
+    }
+
+    @PostMapping("registrati")
+    public String registrati(@Valid Evento evento, BindingResult bindingResult) {
+        if (bindingResult.hasErrors())
+            return "registrati";
+
+        utentiSalvati.add(evento);
+
+        return "redirect:/utenti";
+    }
+
+    @GetMapping("home")
+    public String home() {
+        return "home";
+    }
+
+    @GetMapping("utenti")
+    public String utenti(Model model) {
+        model.addAttribute("utenti", utentiSalvati);
+        return "utenti";
+    }
 }
