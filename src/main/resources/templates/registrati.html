@@ -9,12 +9,12 @@
                 </tr>
                 <tr>
                     <td>Tipo:</td>
-                    <td><input type="text" th:field="*{descrizione}" /></td>
+                    <td><input type="number" th:field="*{descrizione}" /></td>
                     <td th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}">Surname Error</td>
                 </tr>
                 <tr>
                     <td>Descrizione:</td>
-                    <td><input type="integer" th:field="*{id_tipo}" /></td>
+                    <td><input type="text" th:field="*{id_tipo}" /></td>
                     <td th:if="${#fields.hasErrors('id_tipo')}" th:errors="*{id_tipo}">Age Error</td>
                 </tr>
                 <tr>
@@ -24,17 +24,17 @@
                 </tr>
                 <tr>
                     <td>Data inizio:</td>
-                    <td><input type="text" th:field="*{organizzatore}" /></td>
+                    <td><input type="date" th:field="*{organizzatore}" /></td>
                     <td th:if="${#fields.hasErrors('organizzatore')}" th:errors="*{organizzatore}">organizzatore Error</td>
                 </tr>
                 <tr>
                     <td>Data fine:</td>
-                    <td><input type="text" th:field="*{data_inizio}" /></td>
+                    <td><input type="date" th:field="*{data_inizio}" /></td>
                     <td th:if="${#fields.hasErrors('data_inizio')}" th:errors="*{data_inizio}">data_inizio Error</td>
                 </tr>
                 <tr>
                     <td>Stanza:</td>
-                    <td><input type="text" th:field="*{data_fine}" /></td>
+                    <td><input type="number" th:field="*{data_fine}" /></td>
                     <td th:if="${#fields.hasErrors('data_fine')}" th:errors="*{data_fine}">data_fine Error</td>
                 </tr>
                 <tr>
