@@ -19,10 +19,7 @@ public class ScuolaController {
 		return "index";
 	}
 	
-	@GetMapping("registrati")
-	public String registrati(Persona persona) {
-		return "registrati";
-	}
+
 	@GetMapping("registrati")
 	public String registrati(Model model) {
 		model.addAttribute("persona", new Persona());
