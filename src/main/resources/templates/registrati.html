@@ -3,22 +3,37 @@
         <form action="#" th:action="@{/registrati}" th:object="${persona}" method="post">
             <table>
                 <tr>
-                    <td>Name:</td>
+                    <td>Nome:</td>
                     <td><input type="text" th:field="*{nome}" /></td>
                     <td th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">Name Error</td>
                 </tr>
                 <tr>
-                    <td>Surname:</td>
+                    <td>Tipo:</td>
                     <td><input type="text" th:field="*{cognome}" /></td>
                     <td th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}">Surname Error</td>
                 </tr>
                 <tr>
-                    <td>Age:</td>
+                    <td>Descrizione:</td>
                     <td><input type="text" th:field="*{eta}" /></td>
                     <td th:if="${#fields.hasErrors('eta')}" th:errors="*{eta}">Age Error</td>
                 </tr>
                 <tr>
-                    <td>Email:</td>
+                    <td>Organizzatore:</td>
+                    <td><input type="text" th:field="*{email}" /></td>
+                    <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>
+                </tr>
+                <tr>
+                    <td>Data inizio:</td>
+                    <td><input type="text" th:field="*{email}" /></td>
+                    <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>
+                </tr>
+                <tr>
+                    <td>Data fine:</td>
+                    <td><input type="text" th:field="*{email}" /></td>
+                    <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>
+                </tr>
+                <tr>
+                    <td>Stanza:</td>
                     <td><input type="text" th:field="*{email}" /></td>
                     <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>
                 </tr>
