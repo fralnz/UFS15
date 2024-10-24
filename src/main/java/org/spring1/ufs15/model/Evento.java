@@ -1,7 +1,6 @@
 package org.spring1.ufs15.model;
 
 
-import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import org.antlr.v4.runtime.misc.NotNull;
@@ -16,8 +15,8 @@ public class Evento {
     private Integer id;
 
     @NotNull
-    @Size(min=4, max=25)
-    String nome;
+    @Size(min=1, max=25)
+    String titolo;
 
     @NotNull
     @Size(min=1)
