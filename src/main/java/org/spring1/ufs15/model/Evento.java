@@ -19,12 +19,16 @@ public class Evento {
     String titolo;
 
     @NotNull
+    @Size(min = 1, max = 25)
+    String organizzatore;
+
+    @NotNull
+    Integer idTipo;
+
+    @NotNull
     @Size(min = 1)
     String descrizione;
 
-    @NotNull
-    @Size(min = 1, max = 25)
-    String organizzatore;
 
     @NotNull
     Date dataInizio;
@@ -33,18 +37,16 @@ public class Evento {
     Date dataFine;
 
     @NotNull
-    @Size(min = 1)
-    Integer limitePersone;
-
-    @NotNull
     @Size(min = 1, max = 21)
     Integer etaMinima;
 
     @NotNull
-    Integer idStanza;
+    @Size(min = 1)
+    Integer limitePersone;
 
     @NotNull
-    Integer idTipo;
+    Integer idStanza;
+
 
     public Evento(int id, String titolo, String organizzatore, int mostraEvento, String descrizione, java.sql.Date dataIn, java.sql.Date dataFin, int etaMin, int limitePers, String stanza) {
     }

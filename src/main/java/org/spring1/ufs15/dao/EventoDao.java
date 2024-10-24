@@ -5,7 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.Date;
 import java.util.List;
-public interface EventoDao extends CrudRepository<Evento, Integer> {
+public interface EventoDao extends CrudRepository<Evento, Long> {
     List<Evento> findByTitolo(String titolo);
     List<Evento> findByOrganizzatore(String organizzatore);
     List<Evento> findByMostraEvento(int mostraEvento);
