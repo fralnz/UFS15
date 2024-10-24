@@ -62,6 +62,10 @@ public class Evento {
         this.idTipo = idTipo;
     }
 
+    public Evento() {
+
+    }
+
     public Integer getId() {
         return id;
     }

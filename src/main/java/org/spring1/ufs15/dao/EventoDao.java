@@ -1,7 +1,6 @@
 package org.spring1.ufs15.dao;
 
 import org.spring1.ufs15.model.Evento;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Date;
@@ -14,8 +13,8 @@ public interface EventoDao extends CrudRepository<Evento, Integer> {
     List<Evento> findByDataIn(Date dataIn);
     List<Evento> findByDataFin(Date dataFin);
     List<Evento> findByEtaMin(int etaMin);
-    List<Evento> findByLimitePers(int limitePers);
-    List<Evento> findByStanza(String stanza);
+    List<Evento> findByLimitePers(int limitePersone);
+    List<Evento> findByStanza(int idStanza);
 
     Evento findByID(long id);
 

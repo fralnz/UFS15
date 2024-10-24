@@ -16,7 +16,7 @@ public class EventiJdbcDao {
 
     public List<Evento> creazione(String titolo, String organizzatore, int mostraEvento, String descrizione, Date dataIn,Date dataFin, int etaMin, int limitePers, String stanza){
         return jdbcTemplate.query(
-                "select * from eventi",
+                "select * from evento",
                 new Object[]{titolo,organizzatore, mostraEvento, descrizione, dataIn, dataFin,etaMin, limitePers, stanza  },
                 (rs, rowNum) ->
                         new Evento(
