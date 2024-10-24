@@ -25,6 +25,10 @@ public class Agenda {
         this.idTipo = idTipo;
     }
 
+    public Agenda() {
+
+    }
+
     public Integer getId() {
         return id;
     }
