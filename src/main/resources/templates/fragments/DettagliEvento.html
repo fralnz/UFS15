@@ -1,0 +1,27 @@
+<head>
+    <title>Dettaglio Evento o Mostra</title>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<h1>Dettaglio Evento o Mostra</h1>
+<table>
+    <tr>
+        <td>Titolo:</td>
+        <td th:text="${evento.titolo}"></td>
+    </tr>
+    <tr>
+        <td>Organizzatore:</td>
+        <td th:text="${evento.organizzatore}"></td>
+    </tr>
+    <tr>
+        <td>Descrizione:</td>
+        <td th:text="${evento.descrizione}"></td>
+    </tr>
+    <tr>
+        <td>Stanza:</td>
+        <td th:text="${evento.stanza}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
