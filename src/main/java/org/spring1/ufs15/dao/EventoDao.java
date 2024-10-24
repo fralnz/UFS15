@@ -8,14 +8,14 @@ import java.util.List;
 public interface EventoDao extends CrudRepository<Evento, Long> {
     List<Evento> findByTitolo(String titolo);
     List<Evento> findByOrganizzatore(String organizzatore);
-    List<Evento> findByMostraEvento(int mostraEvento);
+    List<Evento> findByIdTipo(int idTipo);
     List<Evento> findByDescrizione(String descrizione);
-    List<Evento> findByDataIn(Date dataIn);
-    List<Evento> findByDataFin(Date dataFin);
-    List<Evento> findByEtaMin(int etaMin);
-    List<Evento> findByLimitePers(int limitePersone);
-    List<Evento> findByStanza(int idStanza);
+    List<Evento> findByDataInizio(Date dataInizio);
+    List<Evento> findByDataFine(Date dataFine);
+    List<Evento> findByEtaMinima(int etaMinima);
+    List<Evento> findByLimitePersone(int limitePersone);
+    List<Evento> findByIdStanza(int idStanza);
 
-    Evento findByID(long id);
+    Evento findById(long id);
 
 }
