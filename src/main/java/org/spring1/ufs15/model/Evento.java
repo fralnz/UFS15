@@ -11,19 +11,19 @@ import java.util.Date;
 @Table(name = "Eventi")
 public class Evento {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @NotNull
-    @Size(min=1, max=25)
+    @Size(min = 1, max = 25)
     String titolo;
 
     @NotNull
-    @Size(min=1)
+    @Size(min = 1)
     String descrizione;
 
     @NotNull
-    @Size(min=1, max=25)
+    @Size(min = 1, max = 25)
     String organizzatore;
 
     @NotNull
@@ -33,7 +33,18 @@ public class Evento {
     Date dataFine;
 
     @NotNull
+    @Size(min = 1)
+    Integer limitePersone;
+
+    @NotNull
+    @Size(min = 1, max = 21)
+    Integer etaMinima;
+
+    @NotNull
     Integer idStanza;
+
+    @NotNull
+    Integer idTipo;
 
     public Evento() {
     }
