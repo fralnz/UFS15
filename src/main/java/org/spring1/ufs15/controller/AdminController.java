@@ -7,30 +7,27 @@ import org.springframework.web.bind.annotation.*;
 import org.spring1.ufs15.dao.AdminDao;
 import org.spring1.ufs15.model.Admin;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
 
     @Autowired
-    private AdminDao adminRepository;
+    AdminDao adminRepository;
 
-    @RequestMapping("/login")
-    public String login() {
-        return "/login/login";
-    }
-
-    @RequestMapping(value = "/signin", method = RequestMethod.POST)
-    public String postLogin(@RequestParam("email") String email,
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String postLogin(@RequestParam("mail") String mail,
                             @RequestParam("password") String password,
                             HttpSession session) {
 
-        Admin admin = adminRepository.checkCredentials(email, password);
+        Admin admin = adminRepository.checkCredentials(mail, password);
 
         if (admin == null) {
-            return "redirect:/admin/login";
+            return "redirect:/evento/"; //errore
         } else {
             session.setAttribute("loggedUser", admin);
-            return "redirect:/";
+            return "redirect:/"; //todo: pagina post login
         }
     }
 

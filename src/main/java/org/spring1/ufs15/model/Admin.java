@@ -5,7 +5,7 @@ import jakarta.validation.constraints.Size;
 import org.antlr.v4.runtime.misc.NotNull;
 
 @Entity
-@Table(name = "Admin")
+//@Table(name = "Admin")
 public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,13 +19,23 @@ public class Admin {
     @Size(min = 1, max = 25)
     String password;
 
+    @NotNull
+    @Size(min = 1, max = 25)
+    String nome;
+
+    @NotNull
+    @Size(min = 1, max = 25)
+    String cognome;
+
     public Admin() {
     }
 
-    public Admin(Integer id, String mail, String password) {
+    public Admin(Integer id, String mail, String password, String nome, String cognome) {
         this.id = id;
         this.mail = mail;
         this.password = password;
+        this.nome = nome;
+        this.cognome = cognome;
     }
 
     public Integer getId() {
@@ -50,5 +60,21 @@ public class Admin {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCognome() {
+        return cognome;
+    }
+
+    public void setCognome(String cognome) {
+        this.cognome = cognome;
     }
 }
