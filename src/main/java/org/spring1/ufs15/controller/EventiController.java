@@ -35,6 +35,6 @@ public class EventiController {
                 2);
         model.addAttribute("evento", evento);
         
-        return "DettagliEvento";
+        return "CreazioneEvento";
     }
 }
