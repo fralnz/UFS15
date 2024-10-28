@@ -6,7 +6,21 @@
 </head>
 <body>
 
+<header class="header">
+    <div class="header-left">
+        <a href="#">Home</a>
+    </div>
+    <div class="header-right">
+        <a href="#">Login</a>
+    </div>
+</header>
+
 <h1>Visualizzazione Eventi o Mostre</h1>
+
+<form class="search-form">
+    <input type="text" placeholder="Cerca eventi..." aria-label="Cerca eventi">
+    <button type="submit">Cerca</button>
+</form>
 
 <div class="card-container">
     <div th:each="evento : ${eventi}" class="event-card">
@@ -19,7 +33,9 @@
         <p><strong>Et&agrave; Minima:</strong> <span th:text="${evento.etaMinima}">Et&agrave; Minima</span></p>
         <p><strong>Limite Persone:</strong> <span th:text="${evento.limitePersone}">Limite Persone</span></p>
         <p><strong>Stanza:</strong> <span th:text="${evento.idStanza}">Numero Stanza</span></p>
+        <td><input type="submit" value="Vedi Dettagli"></input></td>
     </div>
+
 </div>
 
 </body>

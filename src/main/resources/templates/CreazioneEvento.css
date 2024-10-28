@@ -42,7 +42,6 @@ textarea {
 }
 
 input[type="submit"],
-input[type="reset"],
 button {
     width: 100%;
     padding: 12px;
