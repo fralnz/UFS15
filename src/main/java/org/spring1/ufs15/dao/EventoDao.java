@@ -1,7 +1,9 @@
 package org.spring1.ufs15.dao;
 
 import org.spring1.ufs15.model.Evento;
+import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 import java.util.Date;
 import java.util.List;
@@ -17,5 +19,8 @@ public interface EventoDao extends CrudRepository<Evento, Long> {
     List<Evento> findByIdStanza(int idStanza);
 
     Evento findById(long id);
+
+    @Query("SELECT * FROM eventi")
+    Evento checkCredentials(@Param("email") String email, @Param("password") String password);
 
 }
