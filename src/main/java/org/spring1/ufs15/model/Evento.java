@@ -48,6 +48,7 @@ public class Evento {
     Integer idStanza;
 
 
+
     public Evento(int id, String titolo, String organizzatore, int mostraEvento, String descrizione, java.sql.Date dataIn, java.sql.Date dataFin, int etaMin, int limitePers, String stanza) {
     }
 
