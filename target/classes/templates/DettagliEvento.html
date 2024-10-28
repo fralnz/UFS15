@@ -1,0 +1,112 @@
+<html lang="it">
+<head>
+    <title>Creazione Evento o Mostra</title>
+</head>
+<body>
+<h1>Creazione Evento o Mostra</h1>
+<table>
+
+    <tr>
+        <td>Titolo:</td>
+        <td><input type="text" name="Titolo"></input></td>
+    </tr>
+    <p th:text="${evento.titolo}"></p>
+
+    <tr>
+        <td>Organizzatore:</td>
+        <td>
+            <form>
+                <select name="organizzatore" id="organizzatore">
+                    <option value="pippo">Pippo</option>
+                    <option value="pluto">Pluto</option>
+                </select>
+            </form>
+        </td>
+    </tr>
+
+    <tr>
+        <td>Tipologia:</td>
+        <td>
+            <form>
+                <select name="tipologia" id="tipologia">
+                    <option value="pippo">Mostra</option>
+                    <option value="pluto">Evento</option>
+                </select>
+            </form>
+        </td>
+    </tr>
+
+    <tr>
+        <td>Descrizione:</td>
+        <td><input type="text" name="Descrizione"></input></td>
+    </tr>
+
+    <tr>
+        <td>Data inizio:</td>
+        <td>
+            <form>
+                <label>
+                    <input type="datetime-local" name="dataInizio">
+                </label>
+            </form>
+        </td>
+    </tr>
+
+    <tr>
+        <td>Data Fine:</td>
+        <td>
+            <form>
+                <label>
+                    <input type="datetime-local" name="dataFine">
+                </label>
+            </form>
+        </td>
+    </tr>
+
+
+    <tr>
+        <td>Eta Minima:</td>
+        <td>
+            <form>
+                <select name="etaMinima" id="etaMinima">
+                    <option value="pippo">1</option>
+                    <option value="pluto">2</option>
+                </select>
+            </form>
+        </td>
+    </tr>
+
+    <td>Limite Persone:</td>
+    <td>
+        <form>
+            <select name="LimPersone" id="LimPersone">
+                <option value="pippo">1</option>
+                <option value="pluto">2</option>
+            </select>
+        </form>
+    </td>
+    </tr>
+
+    <tr>
+        <td>Stanza:</td>
+        <td>
+            <form>
+                <select name="stanza" id="stanza">
+                    <option value="pippo">stanza rossa</option>
+                    <option value="pluto">stanza blue</option>
+                </select>
+            </form>
+        </td>
+    </tr>
+
+
+    <tr>
+
+        <td><input type="submit" value="Submit"></input></td>
+        <td><input type="reset" value="Resetta il form"></input></td>
+    </tr>
+
+</table>
+
+</body>
+</html>

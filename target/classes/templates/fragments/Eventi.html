@@ -1,0 +1,63 @@
+<html lang="it">
+<head>
+    <title>Visualizzazione Eventi o Mostre</title>
+</head>
+<body>
+
+<h1>Visualizzazione Eventi o Mostre</h1>
+
+<table>
+
+    <td>Titolo:</td>
+     <td>
+         <input type="text" name="Titolo"></input>
+     </td>
+            <p th:text="${evento.titolo}"></p>
+
+
+    <tr>
+        <td>Organizzatore:</td>
+        <p th:text="${evento.organizzatore}"></p>
+    </tr>
+
+    <tr>
+        <td>Tipologia:</td>
+        <p th:text="${evento.tipologia}"></p>
+    </tr>
+
+
+
+    <tr>
+        <td>Descrizione:</td>
+        <p th:text="${evento.descrizione}"></p>
+    </tr>
+
+    <tr>
+        <td>Data Inizio:</td>
+        <p th:text="${evento.dataInizio}"></p>
+    </tr>
+
+    <tr>
+        <td>Data Fine:</td>
+        <p th:text="${evento.dataFine}"></p>
+    </tr>
+
+    <tr>
+        <td>Eta Minima:</td>
+        <p th:text="${evento.etaMinima}"></p>
+    </tr>
+
+    <tr>
+        <td>Limite Persone:</td>
+        <p th:text="${evento.limitePersone}"></p>
+    </tr>
+
+    <tr>
+        <td>Stanza:</td>
+        <p th:text="${evento.idStanza}"></p>
+    </tr>
+
+
+</table>
+</body>
+</html>
