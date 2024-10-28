@@ -2,6 +2,8 @@ package org.spring1.ufs15.model;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Size;
 import org.antlr.v4.runtime.misc.NotNull;
 
@@ -36,12 +38,12 @@ public class Evento {
     @NotNull
     Date dataFine;
 
-    @NotNull
-    @Size(min = 1, max = 21)
+    @Min(1)
+    @Max(15)
     Integer etaMinima;
 
     @NotNull
-    @Size(min = 1)
+    @Min(1)
     Integer limitePersone;
 
     @NotNull

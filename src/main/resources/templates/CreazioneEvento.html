@@ -1,113 +1,67 @@
-<html lang="it">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Creazione Evento o Mostra</title>
-    <link rel="stylesheet" type="text/css" href="./DettagliEvento.css">
+    <title>Nuovo Evento</title>
+    <meta charset="UTF-8">
 </head>
 <body>
-<h1>Creazione Evento o Mostra</h1>
-<table>
+<h1>Crea Nuovo Evento</h1>
 
-    <tr>
-        <td>Titolo:</td>
-        <td><input type="text" name="Titolo"></input></td>
-    </tr>
-    <p th:text="${evento.titolo}"></p>
+<div th:if="${successMessage}" class="alert alert-success">
+    <p th:text="${successMessage}"></p>
+</div>
 
-    <tr>
-        <td>Organizzatore:</td>
-        <td>
-            <form>
-                <select name="organizzatore" id="organizzatore">
-                    <option value="pippo">Pippo</option>
-                    <option value="pluto">Pluto</option>
-                </select>
-            </form>
-        </td>
-    </tr>
+<div th:if="${errorMessage}" class="alert alert-danger">
+    <p th:text="${errorMessage}"></p>
+</div>
 
-    <tr>
-        <td>Tipologia:</td>
-        <td>
-            <form>
-                <select name="tipologia" id="tipologia">
-                    <option value="pippo">Mostra</option>
-                    <option value="pluto">Evento</option>
-                </select>
-            </form>
-        </td>
-    </tr>
+<form th:action="@{/eventi/creaEvento}" th:object="${evento}" method="post">
+    <div>
+        <label for="titolo">Titolo:</label>
+        <input type="text" id="titolo" th:field="*{titolo}" required>
+    </div>
 
-    <tr>
-        <td>Descrizione:</td>
-        <td><input type="text" name="Descrizione"></input></td>
-    </tr>
+    <div>
+        <label for="organizzatore">Organizzatore:</label>
+        <input type="text" id="organizzatore" th:field="*{organizzatore}" required>
+    </div>
 
-    <tr>
-        <td>Data inizio:</td>
-        <td>
-            <form>
-                <label>
-                    <input type="datetime-local" name="dataInizio">
-                </label>
-            </form>
-        </td>
-    </tr>
+    <div>
+        <label for="idTipo">Tipo Evento:</label>
+        <input type="number" id="idTipo" th:field="*{idTipo}" required>
+    </div>
 
-    <tr>
-        <td>Data Fine:</td>
-        <td>
-            <form>
-                <label>
-                    <input type="datetime-local" name="dataFine">
-                </label>
-            </form>
-        </td>
-    </tr>
+    <div>
+        <label for="descrizione">Descrizione:</label>
+        <textarea id="descrizione" th:field="*{descrizione}" required></textarea>
+    </div>
 
+    <div>
+        <label for="dataInizio">Data Inizio:</label>
+        <input type="datetime-local" id="dataInizio" th:field="*{dataInizio}" required>
+    </div>
 
-    <tr>
-        <td>Eta Minima:</td>
-        <td>
-            <form>
-                <select name="etaMinima" id="etaMinima">
-                    <option value="pippo">1</option>
-                    <option value="pluto">2</option>
-                </select>
-            </form>
-        </td>
-    </tr>
+    <div>
+        <label for="dataFine">Data Fine:</label>
+        <input type="datetime-local" id="dataFine" th:field="*{dataFine}" required>
+    </div>
 
-    <td>Limite Persone:</td>
-    <td>
-        <form>
-            <select name="LimPersone" id="LimPersone">
-                <option value="pippo">1</option>
-                <option value="pluto">2</option>
-            </select>
-        </form>
-    </td>
-    </tr>
+    <div>
+        <label for="etaMinima">Età Minima:</label>
+        <input type="number" id="etaMinima" th:field="*{etaMinima}" required>
+    </div>
 
-    <tr>
-        <td>Stanza:</td>
-        <td>
-            <form>
-                <select name="stanza" id="stanza">
-                    <option value="pippo">stanza rossa</option>
-                    <option value="pluto">stanza blue</option>
-                </select>
-            </form>
-        </td>
-    </tr>
+    <div>
+        <label for="limitePersone">Limite Persone:</label>
+        <input type="number" id="limitePersone" th:field="*{limitePersone}" required>
+    </div>
 
+    <div>
+        <label for="idStanza">ID Stanza:</label>
+        <input type="number" id="idStanza" th:field="*{idStanza}" required>
+    </div>
 
-    <tr>
-
-        <td><input type="submit" value="Submit"></input></td>
-        <td><input type="reset" value="Resetta il form"></input></td>
-    </tr>
-
-</table>
-
+    <button type="submit">Salva Evento</button>
+</form>
 </body>
 </html>

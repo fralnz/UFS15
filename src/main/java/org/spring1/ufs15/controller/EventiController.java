@@ -1,11 +1,15 @@
 package org.spring1.ufs15.controller;
 
+import jakarta.validation.Valid;
 import org.spring1.ufs15.dao.EventoDao;
 import org.spring1.ufs15.model.Evento;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -19,7 +23,7 @@ public class EventiController {
     @Autowired
     private EventoDao eventoRepository;
 
-    @RequestMapping("/")
+    @GetMapping("/")
     public String evento(Model model) {
         ModelAndView modelAndView = new ModelAndView();
 
@@ -35,12 +39,12 @@ public class EventiController {
                 3,
                 2);
         model.addAttribute("evento", evento);
-        
+
         return "CreazioneEvento";
     }
-    @RequestMapping("/creaEvento/{id}")
-    public String remove(@PathVariable("id") long id) {
-        eventoRepository.deleteById(id);
-        return "redirect:/eventi/";
+    @PostMapping("/creaEvento")
+    public String save(@Valid Evento e, BindingResult bindingResult) { //BindingResult controlla se lìevento è valido
+        eventoRepository.save(e);
+        return "redirect:";
     }
 }

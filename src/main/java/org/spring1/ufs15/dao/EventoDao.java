@@ -8,9 +8,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface EventoDao extends CrudRepository<Evento, Long> {
-    default <S extends Evento> S save(S entity) {
-        return null;
-    }
 
     default <S extends Evento> Iterable<S> saveAll(Iterable<S> entities) {
         return null;
