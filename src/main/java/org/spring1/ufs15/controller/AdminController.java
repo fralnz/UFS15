@@ -10,13 +10,13 @@ import org.spring1.ufs15.model.Admin;
 import java.util.List;
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/login")
 public class AdminController {
 
     @Autowired
     AdminDao adminRepository;
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/", method = RequestMethod.POST)
     public String postLogin(@RequestParam("mail") String mail,
                             @RequestParam("password") String password,
                             HttpSession session) {
@@ -24,7 +24,7 @@ public class AdminController {
         Admin admin = adminRepository.checkCredentials(mail, password);
 
         if (admin == null) {
-            return "redirect:/evento/"; //errore
+            return "redirect:/eventi/"; //errore
         } else {
             session.setAttribute("loggedUser", admin);
             return "redirect:/"; //todo: pagina post login
