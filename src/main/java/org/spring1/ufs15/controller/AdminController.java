@@ -29,15 +29,20 @@ public class AdminController {
 
     // faccio un metodo uguale per la richiesta POST (ricevere i dati dal DB)
     @PostMapping(value = "/")
-    public String postLogin(@Valid Admin admin, BindingResult bindingResult) {
+    public String postLogin(@Valid Admin admin, BindingResult bindingResult, HttpSession session) {
+
+        if (bindingResult.hasErrors()) {
+            return "Login";
+        }
 
         Admin user = adminRepository.checkCredentials(admin.getMail(), admin.getPassword());
-        System.out.println("admin: "+admin);
-        System.out.println("verifica: "+user);
+        System.out.println("admin: " + admin);
+        System.out.println("admin loggato: " + user);
 
         if (user == null) {
             return "redirect:/login/";
         } else {
+            session.setAttribute("loggedUser", user);
             return "redirect:/eventi/";
         }
 
