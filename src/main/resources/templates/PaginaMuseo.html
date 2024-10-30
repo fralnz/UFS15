@@ -6,16 +6,71 @@
     <title>Pagina Museo</title>
 </head>
 <body>
+
+
 <header class="header">
     <div class="header-left">
         <a href="#">Home</a>
     </div>
     <div class="header-right">
-        <a href="#">Login</a>
+        <a th:href="@{Login.html}">Login</a>
     </div>
 </header>
 
 <h1>Museo ITSAR</h1>
 
+<br>
+
+<section class="hero">
+    <h1 class="Titolo" id="home">Cerca qualcosa?</h1>
+    <form>
+        <input class="searchBarra" type="search" placeholder="Search events, artists, venues, festivals">
+        <button class="search" type="submit">CERCA
+        </button>
+    </form>
+</section>
+
+<div class="descrizione">
+    <p class="descrizione-testo">Il Museo ITSAR è un centro culturale d'avanguardia dedicato all'incontro tra innovazione e tradizione, dove tecnologia, storia e arte si fondono in un'unica esperienza immersiva. Situato in un ambiente moderno e accogliente, il museo offre un ampio programma di mostre temporanee e permanenti, che spaziano dall'arte contemporanea alla storia delle scoperte scientifiche, fino all'evoluzione tecnologica più recente.</p>
+    <br>
+    <p class="descrizione-testo">ITSAR si distingue anche per un'ampia varietà di eventi, tra cui conferenze, workshop e presentazioni interattive, pensate per stimolare la curiosità e favorire la scoperta. Ogni esposizione è arricchita da esperienze multimediali e interattive, consentendo ai visitatori di esplorare i temi in modo coinvolgente e dinamico.</p>
+    <br>
+    <p class="descrizione-testo">Il museo accoglie visitatori di tutte le età e si impegna a offrire un'esperienza culturale completa, con un'attenzione particolare all'accessibilità e alla sostenibilità.</p>
+</div>
+
+<br>
+<br>
+<div class="card-container">
+
+    <div class="card">
+        <h2>Mostre</h2>
+        <p>Esplora le mostre che sono in programma nel nostro museo</p>
+    </div>
+
+    <div class="card">
+        <h2>Mostre</h2>
+        <p>Esplora le mostre che sono in programma nel nostro museo</p>
+    </div>
+
+</div>
+
+<footer>
+    <p class="sottolineato"> TERMS OF USE | PRIVACY POLICY | COOKIE POLICY</p>
+
+    <div class="iconeSocial">
+        <a href="https://www.meta.com/it/quest/quest-3/?utm_source=gg&utm_medium=ps&utm_campaign=20557743730&utm_term=meta&utm_content=697448920271&utm_funnel=dcap&gad_source=1&gclid=Cj0KCQjwjLGyBhCYARIsAPqTz19RJFmXg2Lm6D6gFlPJ9WZGUyZ2XHF8aJ42oT2QXRtfoV0jG_nitJYaAsK5EALw_wcB&gclsrc=aw.ds">
+            <img src="meta.svg" alt="meta" width="25" height="25">
+        </a>
+        <a href="https://x.com/?lang=it">
+            <img src="twitter.png" alt="twitter" width="25" height="25">
+        </a>
+        <a href="https://www.instagram.com/">
+            <img src="insta.png" alt="instagram" width="25" height="25">
+        </a>
+        <a href="https://www.twitch.tv/">
+            <img src="twitch.png" alt="twitch" width="25" height="25">
+        </a>
+    </div>
+</footer>
 </body>
 </html>

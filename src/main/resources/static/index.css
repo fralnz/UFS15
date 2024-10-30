@@ -1,4 +1,12 @@
 /*INFORMAZIONI GENERALI PER TUTTE LE PAGINE*/
+* {
+    font-family: "Alef", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -164,4 +172,81 @@ td.label {
 .header a:hover {
     background-color: #f0f0f0;
     border-radius: 5px;
+}
+
+
+
+/*PAGINA PRINCIPALE MUSEO*/
+
+.card {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), transparent), url('mostre.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: end;
+    padding: 20px;
+}
+
+.descrizione {
+    max-width: 600px; /
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.descrizione-testo {
+    color: #555555;
+}
+
+p {
+    margin: 0;
+    line-height: 1.6;
+    color: white;
+}
+
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+    text-align: center;
+}
+
+
+footer p {
+    margin: 0;
+    color: #F8F9FA;
+}
+
+.sottolineato {
+    text-decoration: underline;
+    margin: 0;
+    color: #F8F9FA;
+}
+
+.iconeSocial {
+    padding: 15px;
+}
+
+.Titolo {
+    text-align: center;
+    color: #F8F9FA;
+}
+
+.searchBarra {
+    width: 50%;
+    height: 20%;
+    padding: 10px;
+    border:  #F8F9FA;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: none;
 }
