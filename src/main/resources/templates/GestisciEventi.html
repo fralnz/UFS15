@@ -3,6 +3,7 @@
 <head>
     <title>Gestisci Eventi</title>
     <link rel="stylesheet" type="text/css" th:href="@{/index.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/ListaEventi.css}">
 </head>
 <body>
 
@@ -13,8 +14,8 @@
     <button type="submit">Cerca</button>
 </form>
 
-<div class="card-container">
-    <div th:each="evento : ${eventi}" class="event-card">
+<div class="gestisci-evento-card-container">
+    <div th:each="evento : ${eventi}" class="gestisci-evento-card">
         <h2 th:text="${evento.titolo}">Titolo Evento</h2>
         <p><strong>Organizzatore:</strong> <span th:text="${evento.organizzatore}">Organizzatore Evento</span></p>
         <p><strong>Tipologia:</strong> <span th:text="${evento.idTipo}">Tipologia Evento</span></p>
@@ -24,7 +25,16 @@
         <p><strong>Et&agrave; Minima:</strong> <span th:text="${evento.etaMinima}">Et&agrave; Minima</span></p>
         <p><strong>Limite Persone:</strong> <span th:text="${evento.limitePersone}">Limite Persone</span></p>
         <p><strong>Stanza:</strong> <span th:text="${evento.idStanza}">Numero Stanza</span></p>
-        <td><input type="submit" value="Vedi Dettagli"></input></td>
+        <div class="button-container">
+            <!--TODO: usare le ancore che passano a query per delete / update-->
+            <a href=""></a>
+            <form th:action="@{/admin/eventi/creaEvento/}" th:object="${evento}" method="post">
+                <td><input type="submit" class="edit-button" value="Modifica"></input></td>
+            </form>
+            <form th:action="@{/admin/eventi/eliminaEvento/}" th:object="${evento}" method="post">
+                <td><input type="submit" class="delete-button" value="Elimina"></input></td>
+            </form>
+        </div>
     </div>
 
 </div>
