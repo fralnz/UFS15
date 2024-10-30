@@ -55,7 +55,6 @@ button {
     color: #fff;
     margin-top: 15px;
     transition: background-color 0.3s ease;
-    grid-column: span 2;
 }
 
 input[type="submit"]:hover,
