@@ -2,6 +2,7 @@ package org.spring1.ufs15.controller;
 
 import jakarta.validation.Valid;
 import org.spring1.ufs15.dao.EventoDao;
+import org.spring1.ufs15.model.Admin;
 import org.spring1.ufs15.model.Evento;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,21 +26,7 @@ public class EventiController {
 
     @GetMapping("/")
     public String evento(Model model) {
-        ModelAndView modelAndView = new ModelAndView();
-
-        Evento evento = new Evento(
-                0,
-                "Titolo",
-                "Descrizione",
-                "Organizzatore",
-                new Date(12, Calendar.MARCH, 12),
-                new Date(12, Calendar.MARCH, 14),
-                8,
-                12,
-                3,
-                2);
-        model.addAttribute("evento", evento);
-
+        model.addAttribute("evento", new Evento());
         return "CreazioneEvento";
     }
     @PostMapping("/creaEvento")
