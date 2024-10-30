@@ -9,19 +9,22 @@
 <h1>Login per la creazione di Eventi e Mostre</h1>
 
 <table>
-<tr>
-    <td>Mail</td>
-    <td><input type="text" name="Mail"></input></td>
-</tr>
+    <form th:action="@{/login}" method="post" th:object="${admin}">
+        <tr>
+            <td>Mail</td>
+            <td><input type="text" name="Mail"></input></td>
+        </tr>
 
-<tr>
-    <td>Password</td>
-    <td><input type="password" name="Password"></input></td>
-</tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" name="Password"></input></td>
+        </tr>
 
-    <tr>
-        <td><input type="submit" value="Login"></input></td>
-    </tr>
+        <tr>
+            <td><input type="submit" value="Login"></input></td>
+        </tr>
+        <button type="submit">login</button>
+    </form>
 </table>
 </body>
 </html>

@@ -11,7 +11,7 @@ import org.spring1.ufs15.model.Admin;
 import java.util.List;
 
 @Controller
-@RequestMapping("/login")
+@RequestMapping("/login/")
 public class AdminController {
 
     @Autowired
@@ -20,14 +20,14 @@ public class AdminController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String postLoginPage(Model model) {
-
+        model.addAttribute("admin", new Admin());
         return "Login";
-
     }
 
     // faccio un metodo uguale per la richiesta POST (ricevere i dati dal DB)
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @PostMapping(value = "/")
     public String postLogin(Model model) {
+
 
         return "Login";
 
