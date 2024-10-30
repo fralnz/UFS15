@@ -50,7 +50,6 @@ public class Evento {
     Integer idStanza;
 
 
-
     public Evento(int id, String titolo, String organizzatore, int mostraEvento, String descrizione, java.sql.Date dataIn, java.sql.Date dataFin, int etaMin, int limitePers, String stanza) {
     }
 
@@ -149,5 +148,21 @@ public class Evento {
 
     public void setIdTipo(Integer idTipo) {
         this.idTipo = idTipo;
+    }
+
+    @Override
+    public String toString() {
+        return "Evento{" +
+                "id=" + id +
+                ", titolo='" + titolo + '\'' +
+                ", organizzatore='" + organizzatore + '\'' +
+                ", idTipo=" + idTipo +
+                ", descrizione='" + descrizione + '\'' +
+                ", dataInizio=" + dataInizio +
+                ", dataFine=" + dataFine +
+                ", etaMinima=" + etaMinima +
+                ", limitePersone=" + limitePersone +
+                ", idStanza=" + idStanza +
+                '}';
     }
 }

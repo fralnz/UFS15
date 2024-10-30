@@ -1,16 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" th:href="@{/index.css}">
     <title>Gestisci Eventi</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/index.css}">
 </head>
 <body>
 
 <h1>Gestisci Eventi</h1>
 
-<p>Modifica Evento</p>
-<p>Crea nuovo evento</p>
+<form class="search-form">
+    <input type="text" placeholder="Cerca eventi..." aria-label="Cerca eventi">
+    <button type="submit">Cerca</button>
+</form>
+
+<div class="card-container">
+    <div th:each="evento : ${eventi}" class="event-card">
+        <h2 th:text="${evento.titolo}">Titolo Evento</h2>
+        <p><strong>Organizzatore:</strong> <span th:text="${evento.organizzatore}">Organizzatore Evento</span></p>
+        <p><strong>Tipologia:</strong> <span th:text="${evento.idTipo}">Tipologia Evento</span></p>
+        <p><strong>Descrizione:</strong> <span th:text="${evento.descrizione}">Descrizione Evento</span></p>
+        <p><strong>Data Inizio:</strong> <span th:text="${evento.dataInizio}">Data Inizio</span></p>
+        <p><strong>Data Fine:</strong> <span th:text="${evento.dataFine}">Data Fine</span></p>
+        <p><strong>Et&agrave; Minima:</strong> <span th:text="${evento.etaMinima}">Et&agrave; Minima</span></p>
+        <p><strong>Limite Persone:</strong> <span th:text="${evento.limitePersone}">Limite Persone</span></p>
+        <p><strong>Stanza:</strong> <span th:text="${evento.idStanza}">Numero Stanza</span></p>
+        <td><input type="submit" value="Vedi Dettagli"></input></td>
+    </div>
+
+</div>
 
 </body>
 </html>
