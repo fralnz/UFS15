@@ -1,3 +1,4 @@
+/*INFORMAZIONI GENERALI PER TUTTE LE PAGINE*/
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -54,7 +55,7 @@ button {
     color: #fff;
     margin-top: 15px;
     transition: background-color 0.3s ease;
-    grid-column: span 2; /* Estende il pulsante su due colonne */
+    grid-column: span 2;
 }
 
 input[type="submit"]:hover,
@@ -68,3 +69,100 @@ td.label {
     padding-bottom: 5px;
 }
 
+
+
+/*PAGINA EVENTI*/
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.event-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 300px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.event-card h2 {
+    font-size: 1.5em;
+    margin-top: 0;
+    color: #333;
+}
+
+.event-card p {
+    margin: 8px 0;
+    color: #555;
+}
+
+.event-card p strong {
+    color: #333;
+}
+
+.header a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+}
+
+.header a:hover {
+    background-color: #88c;
+    border-radius: 5px;
+}
+
+.search-form {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.search-form input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-form button {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #88c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    background-color: #668;
+}
+
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10; /* Assicura che l'intestazione sia sopra lo sfondo */
+}
+
+.header a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+}
+
+.header a:hover {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
