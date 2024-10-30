@@ -2,7 +2,6 @@ package org.spring1.ufs15.controller;
 
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
-import org.spring1.ufs15.model.Evento;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
