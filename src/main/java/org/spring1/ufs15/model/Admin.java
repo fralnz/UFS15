@@ -77,4 +77,15 @@ public class Admin {
     public void setCognome(String cognome) {
         this.cognome = cognome;
     }
+
+    @Override
+    public String toString() {
+        return "Admin{" +
+                "id=" + id +
+                ", mail='" + mail + '\'' +
+                ", password='" + password + '\'' +
+                ", nome='" + nome + '\'' +
+                ", cognome='" + cognome + '\'' +
+                '}';
+    }
 }

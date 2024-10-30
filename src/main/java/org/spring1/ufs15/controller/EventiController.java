@@ -43,7 +43,7 @@ public class EventiController {
         return "CreazioneEvento";
     }
     @PostMapping("/creaEvento")
-    public String save(@Valid Evento e, BindingResult bindingResult) { //BindingResult controlla se lìevento è valido
+    public String save(@Valid Evento e, BindingResult bindingResult) { //BindingResult controlla se l'evento è valido
         eventoRepository.save(e);
         return "redirect:";
     }

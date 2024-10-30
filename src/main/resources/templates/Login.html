@@ -9,7 +9,7 @@
 <h1>Login per la creazione di Eventi e Mostre</h1>
 
 <table>
-    <form th:action="@{/login}" method="post" th:object="${admin}">
+    <form th:action="@{/login/}" method="post" th:object="${admin}">
         <tr>
             <td>Mail</td>
             <td><input type="text" name="Mail"></input></td>
@@ -23,7 +23,6 @@
         <tr>
             <td><input type="submit" value="Login"></input></td>
         </tr>
-        <button type="submit">login</button>
     </form>
 </table>
 </body>
