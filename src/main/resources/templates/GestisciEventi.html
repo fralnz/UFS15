@@ -36,6 +36,7 @@
         <p><strong>Stanza:</strong> <span th:text="${evento.idStanza}">Numero Stanza</span></p>
         <div class="button-container">
             <a th:href="@{/admin/eventi/eliminaEvento/{id}(id=${evento.id})}">Elimina</a>
+            <a th:href="@{/admin/eventi/modificaEvento/{id}(id=${evento.id})}">Modifica</a>
         </div>
     </div>
 

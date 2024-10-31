@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Modifica Evento</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/index.css}">
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>Modifica Evento</h1>
+
+<table>
+    <tbody>
+    <tr th:if="${successMessage}">
+        <td colspan="2" class="alert alert-success">
+            <p th:text="${successMessage}"></p>
+        </td>
+    </tr>
+
+    <tr th:if="${errorMessage}">
+        <td colspan="2" class="alert alert-danger">
+            <p th:text="${errorMessage}"></p>
+        </td>
+    </tr>
+
+    <form th:action="@{/eventi/modificaEvento}" th:object="${evento}" method="post">
+        <tr>
+            <td><label for="titolo">Titolo:</label></td>
+            <td><input type="text" id="titolo" th:field="*{titolo}" required></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="submit">Salva Evento</button>
+            </td>
+        </tr>
+    </form>
+    </tbody>
+</table>
+
+</body>
+</html>

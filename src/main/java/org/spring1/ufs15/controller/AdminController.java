@@ -9,8 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/admin/")
@@ -35,6 +37,18 @@ public class AdminController {
     public String deleteEvento(@PathVariable("id") long id) {
         System.out.println(id);
         eventiRepository.deleteById(id);
-        return "redirect:/admin/eventi/"; // Redirect to the list of events after deletion
+        return "redirect:/admin/eventi/";
+    }
+
+    @RequestMapping("/eventi/modificaEvento/{id}")
+    public String editEvento(@PathVariable("id") long id, Model model) {
+        Evento evento = eventiRepository.findById(id);
+        ModelAndView modelAndView = new ModelAndView();
+        if (evento == null) {
+            return (null);
+        }
+        model.addAttribute("evento", evento);
+
+        return "ModificaEvento";
     }
 }

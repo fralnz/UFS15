@@ -12,4 +12,6 @@ public interface EventoDao extends CrudRepository<Evento, Long> {
 
     @Query("SELECT e FROM Evento e")
     public List<Evento> getEventiList();
+
+    Evento findById(long id);
 }
