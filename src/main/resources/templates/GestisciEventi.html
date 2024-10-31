@@ -35,14 +35,7 @@
         <p><strong>Limite Persone:</strong> <span th:text="${evento.limitePersone}">Limite Persone</span></p>
         <p><strong>Stanza:</strong> <span th:text="${evento.idStanza}">Numero Stanza</span></p>
         <div class="button-container">
-            <!--TODO: usare le ancore che passano a query per delete / update-->
-            <a href=""></a>
-            <form th:action="@{/admin/eventi/creaEvento/}" th:object="${evento}" method="post">
-                <td><input type="submit" class="edit-button" value="Modifica"></input></td>
-            </form>
-            <form th:action="@{/admin/eventi/eliminaEvento/}" th:object="${evento}" method="post">
-                <td><input type="submit" class="delete-button" value="Elimina"></input></td>
-            </form>
+            <a th:href="@{/admin/eventi/eliminaEvento/{id}(id=${evento.id})}">Elimina</a>
         </div>
     </div>
 

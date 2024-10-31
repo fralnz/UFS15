@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,10 +31,10 @@ public class AdminController {
         return "GestisciEventi";
     }
 
-    @PostMapping("/eventi/eliminaEvento/")
-    public String save(@Valid Evento evento, BindingResult bindingResult) {
-        System.out.println("evento da eliminare: " + evento);
-        eventiRepository.delete(evento);
-        return "redirect:/admin/eventi/";
+    @RequestMapping("/eventi/eliminaEvento/{id}")
+    public String deleteEvento(@PathVariable("id") long id) {
+        System.out.println(id);
+        eventiRepository.deleteById(id);
+        return "redirect:/admin/eventi/"; // Redirect to the list of events after deletion
     }
 }
