@@ -27,8 +27,9 @@ public class Evento {
     @Size(min = 1, max = 25)
     String organizzatore;
 
-    @NotNull
-    Integer idTipo;
+    @ManyToOne
+    @JoinColumn(name = "id_tipo", nullable = false)
+    private Tipo tipo;
 
     @NotNull
     @Size(min = 1)
@@ -57,7 +58,7 @@ public class Evento {
     public Evento(int id, String titolo, String organizzatore, int mostraEvento, String descrizione, java.sql.Date dataIn, java.sql.Date dataFin, int etaMin, int limitePers, String stanza) {
     }
 
-    public Evento(Integer id, String titolo, String descrizione, String organizzatore, LocalDateTime dataInizio, LocalDateTime dataFine, Integer limitePersone, Integer etaMinima, Integer idStanza, Integer idTipo) {
+    public Evento(Integer id, String titolo, String descrizione, String organizzatore, LocalDateTime dataInizio, LocalDateTime dataFine, Integer limitePersone, Integer etaMinima, Integer idStanza, Tipo tipo) {
         this.id = id;
         this.titolo = titolo;
         this.descrizione = descrizione;
@@ -67,7 +68,7 @@ public class Evento {
         this.limitePersone = limitePersone;
         this.etaMinima = etaMinima;
         this.idStanza = idStanza;
-        this.idTipo = idTipo;
+        this.tipo = tipo;
     }
 
     public Evento() {
@@ -146,12 +147,12 @@ public class Evento {
         this.idStanza = idStanza;
     }
 
-    public Integer getIdTipo() {
-        return idTipo;
+    public Tipo getTipo() {
+        return tipo;
     }
 
-    public void setIdTipo(Integer idTipo) {
-        this.idTipo = idTipo;
+    public void setTipo(Tipo tipo) {
+        this.tipo = tipo;
     }
 
     @Override
@@ -160,7 +161,7 @@ public class Evento {
                 "id=" + id +
                 ", titolo='" + titolo + '\'' +
                 ", organizzatore='" + organizzatore + '\'' +
-                ", idTipo=" + idTipo +
+                ", tipo=" + tipo +
                 ", descrizione='" + descrizione + '\'' +
                 ", dataInizio=" + dataInizio +
                 ", dataFine=" + dataFine +

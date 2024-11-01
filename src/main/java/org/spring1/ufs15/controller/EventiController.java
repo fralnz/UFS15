@@ -2,6 +2,7 @@ package org.spring1.ufs15.controller;
 
 import jakarta.validation.Valid;
 import org.spring1.ufs15.dao.EventoDao;
+import org.spring1.ufs15.dao.TipoDao;
 import org.spring1.ufs15.model.Admin;
 import org.spring1.ufs15.model.Evento;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +25,13 @@ public class EventiController {
     @Autowired
     private EventoDao eventoRepository;
 
+    @Autowired
+    private TipoDao tipoRepository;
+
     @GetMapping("/")
     public String evento(Model model) {
         model.addAttribute("evento", new Evento());
+        model.addAttribute("tipiList", tipoRepository.findAll());
         return "CreazioneEvento";
     }
     @PostMapping("/creaEvento")

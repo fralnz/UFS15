@@ -27,7 +27,8 @@
     <div th:each="evento : ${eventi}" class="gestisci-evento-card">
         <h2 th:text="${evento.titolo}">Titolo Evento</h2>
         <p><strong>Organizzatore:</strong> <span th:text="${evento.organizzatore}">Organizzatore Evento</span></p>
-        <p><strong>Tipologia:</strong> <span th:text="${evento.idTipo}">Tipologia Evento</span></p>
+        <p><strong>Tipologia:</strong> <span th:text="${evento.tipo?.nome ?: 'Non specificato'}">Tipologia Evento</span>
+        </p>
         <p><strong>Descrizione:</strong> <span th:text="${evento.descrizione}">Descrizione Evento</span></p>
         <p>
             <strong>Data Inizio:</strong>
@@ -45,7 +46,6 @@
             <a th:href="@{/admin/eventi/modificaEvento/{id}(id=${evento.id})}">Modifica</a>
         </div>
     </div>
-
 </div>
 
 </body>

@@ -23,9 +23,14 @@
             <td><input type="text" id="organizzatore" th:field="*{organizzatore}" required></td>
         </tr>
         <tr>
-            <td><label for="idTipo">Tipo di evento:</label></td>
+            <td><label for="tipo">Tipo Evento:</label></td>
             <td>
-                <select id="idTipo" th:field="*{idTipo}">
+                <select id="tipo" th:field="*{tipo}" required>
+                    <option value="">-- Seleziona Tipo --</option>
+                    <option th:each="tipoOption : ${tipiList}"
+                            th:value="${tipoOption.id}"
+                            th:text="${tipoOption.nome}">
+                    </option>
                 </select>
             </td>
         </tr>

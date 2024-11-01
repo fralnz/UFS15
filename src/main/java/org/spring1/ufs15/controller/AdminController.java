@@ -3,6 +3,7 @@ package org.spring1.ufs15.controller;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.spring1.ufs15.dao.EventoDao;
+import org.spring1.ufs15.dao.TipoDao;
 import org.spring1.ufs15.model.Evento;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,10 @@ public class AdminController {
     @Autowired
     EventoDao eventiRepository;
 
+    @Autowired
+    private TipoDao tipoRepository;
+
+
     @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
     public String adminDashboard(HttpSession session) {
         return "Dashboard";
@@ -30,6 +35,7 @@ public class AdminController {
     public String adminDashboard(Model model, HttpSession session) {
         List<Evento> eventi = eventiRepository.getEventiList();
         model.addAttribute("eventi", eventi);
+        model.addAttribute("tipiList", tipoRepository.findAll());
         return "GestisciEventi";
     }
 
@@ -43,11 +49,11 @@ public class AdminController {
     @RequestMapping("/eventi/modificaEvento/{id}")
     public String editEvento(@PathVariable("id") long id, Model model) {
         Evento evento = eventiRepository.findById(id);
-        ModelAndView modelAndView = new ModelAndView();
         if (evento == null) {
             return (null);
         }
         model.addAttribute("evento", evento);
+        model.addAttribute("tipiList", tipoRepository.findAll());
 
         return "ModificaEvento";
     }

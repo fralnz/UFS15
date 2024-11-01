@@ -9,7 +9,8 @@
 <h1>Crea Nuovo Evento</h1>
 
 <table>
-    <tbody> <tr th:if="${successMessage}">
+    <tbody>
+    <tr th:if="${successMessage}">
         <td colspan="2" class="alert alert-success">
             <p th:text="${successMessage}"></p>
         </td>
@@ -31,8 +32,16 @@
             <td><input type="text" id="organizzatore" th:field="*{organizzatore}" required></td>
         </tr>
         <tr>
-            <td><label for="idTipo">Tipo Evento:</label></td>
-            <td><input type="number" id="idTipo" th:field="*{idTipo}" required></td>
+            <td><label for="tipo">Tipo Evento:</label></td>
+            <td>
+                <select id="tipo" th:field="*{tipo}" required>
+                    <option value="">-- Seleziona Tipo --</option>
+                    <option th:each="tipoOption : ${tipiList}"
+                            th:value="${tipoOption.id}"
+                            th:text="${tipoOption.nome}">
+                    </option>
+                </select>
+            </td>
         </tr>
         <tr>
             <td><label for="descrizione">Descrizione:</label></td>
@@ -40,11 +49,11 @@
         </tr>
         <tr>
             <td><label for="dataInizio">Data Inizio:</label></td>
-            <td><input type="date" id="dataInizio" th:field="*{dataInizio}" required></td>
+            <td><input type="datetime-local" id="dataInizio" th:field="*{dataInizio}" required></td>
         </tr>
         <tr>
             <td><label for="dataFine">Data Fine:</label></td>
-            <td><input type="date" id="dataFine" th:field="*{dataFine}" required></td>
+            <td><input type="datetime-local" id="dataFine" th:field="*{dataFine}" required></td>
         </tr>
         <tr>
             <td><label for="etaMinima">Età Minima:</label></td>
