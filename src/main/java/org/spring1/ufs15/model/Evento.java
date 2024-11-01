@@ -6,7 +6,9 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Size;
 import org.antlr.v4.runtime.misc.NotNull;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -31,12 +33,13 @@ public class Evento {
     @Size(min = 1)
     String descrizione;
 
+    @NotNull
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    private LocalDate dataInizio;
 
     @NotNull
-    Date dataInizio;
-
-    @NotNull
-    Date dataFine;
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    private LocalDate dataFine;
 
     @Min(1)
     @Max(15)
@@ -53,7 +56,7 @@ public class Evento {
     public Evento(int id, String titolo, String organizzatore, int mostraEvento, String descrizione, java.sql.Date dataIn, java.sql.Date dataFin, int etaMin, int limitePers, String stanza) {
     }
 
-    public Evento(Integer id, String titolo, String descrizione, String organizzatore, Date dataInizio, Date dataFine, Integer limitePersone, Integer etaMinima, Integer idStanza, Integer idTipo) {
+    public Evento(Integer id, String titolo, String descrizione, String organizzatore, LocalDate dataInizio, LocalDate dataFine, Integer limitePersone, Integer etaMinima, Integer idStanza, Integer idTipo) {
         this.id = id;
         this.titolo = titolo;
         this.descrizione = descrizione;
@@ -102,19 +105,19 @@ public class Evento {
         this.organizzatore = organizzatore;
     }
 
-    public Date getDataInizio() {
+    public LocalDate getDataInizio() {
         return dataInizio;
     }
 
-    public void setDataInizio(Date dataInizio) {
+    public void setDataInizio(LocalDate dataInizio) {
         this.dataInizio = dataInizio;
     }
 
-    public Date getDataFine() {
+    public LocalDate getDataFine() {
         return dataFine;
     }
 
-    public void setDataFine(Date dataFine) {
+    public void setDataFine(LocalDate dataFine) {
         this.dataFine = dataFine;
     }
 

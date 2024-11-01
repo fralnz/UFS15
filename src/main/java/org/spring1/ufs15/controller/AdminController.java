@@ -51,4 +51,15 @@ public class AdminController {
 
         return "ModificaEvento";
     }
+
+    @PostMapping("/eventi/modificaEvento/aggiornaEvento/")
+    public String save(@Valid Evento e, BindingResult bindingResult) {
+        System.out.println(e);
+        if (bindingResult.hasErrors()) {
+            System.out.println(bindingResult.getAllErrors());
+            return (null);
+        }
+        eventiRepository.save(e);
+        return "redirect:/admin/eventi/";
+    }
 }
