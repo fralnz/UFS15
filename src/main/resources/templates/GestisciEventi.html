@@ -29,8 +29,14 @@
         <p><strong>Organizzatore:</strong> <span th:text="${evento.organizzatore}">Organizzatore Evento</span></p>
         <p><strong>Tipologia:</strong> <span th:text="${evento.idTipo}">Tipologia Evento</span></p>
         <p><strong>Descrizione:</strong> <span th:text="${evento.descrizione}">Descrizione Evento</span></p>
-        <p><strong>Data Inizio:</strong> <span th:text="${evento.dataInizio}">Data Inizio</span></p>
-        <p><strong>Data Fine:</strong> <span th:text="${evento.dataFine}">Data Fine</span></p>
+        <p>
+            <strong>Data Inizio:</strong>
+            <span th:text="${#temporals.format(evento.dataInizio, 'dd/MM/yyyy HH:mm')}">Data Inizio</span>
+        </p>
+        <p>
+            <strong>Data Fine:</strong>
+            <span th:text="${#temporals.format(evento.dataFine, 'dd/MM/yyyy HH:mm')}">Data Fine</span>
+        </p>
         <p><strong>Et&agrave; Minima:</strong> <span th:text="${evento.etaMinima}">Et&agrave; Minima</span></p>
         <p><strong>Limite Persone:</strong> <span th:text="${evento.limitePersone}">Limite Persone</span></p>
         <p><strong>Stanza:</strong> <span th:text="${evento.idStanza}">Numero Stanza</span></p>

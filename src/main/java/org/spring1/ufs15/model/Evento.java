@@ -9,6 +9,7 @@ import org.antlr.v4.runtime.misc.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -35,11 +36,11 @@ public class Evento {
 
     @NotNull
     @DateTimeFormat(pattern = "dd-MM-yyyy")
-    private LocalDate dataInizio;
+    private LocalDateTime dataInizio;
 
     @NotNull
     @DateTimeFormat(pattern = "dd-MM-yyyy")
-    private LocalDate dataFine;
+    private LocalDateTime dataFine;
 
     @Min(1)
     @Max(15)
@@ -56,7 +57,7 @@ public class Evento {
     public Evento(int id, String titolo, String organizzatore, int mostraEvento, String descrizione, java.sql.Date dataIn, java.sql.Date dataFin, int etaMin, int limitePers, String stanza) {
     }
 
-    public Evento(Integer id, String titolo, String descrizione, String organizzatore, LocalDate dataInizio, LocalDate dataFine, Integer limitePersone, Integer etaMinima, Integer idStanza, Integer idTipo) {
+    public Evento(Integer id, String titolo, String descrizione, String organizzatore, LocalDateTime dataInizio, LocalDateTime dataFine, Integer limitePersone, Integer etaMinima, Integer idStanza, Integer idTipo) {
         this.id = id;
         this.titolo = titolo;
         this.descrizione = descrizione;
@@ -105,19 +106,19 @@ public class Evento {
         this.organizzatore = organizzatore;
     }
 
-    public LocalDate getDataInizio() {
+    public LocalDateTime getDataInizio() {
         return dataInizio;
     }
 
-    public void setDataInizio(LocalDate dataInizio) {
+    public void setDataInizio(LocalDateTime dataInizio) {
         this.dataInizio = dataInizio;
     }
 
-    public LocalDate getDataFine() {
+    public LocalDateTime getDataFine() {
         return dataFine;
     }
 
-    public void setDataFine(LocalDate dataFine) {
+    public void setDataFine(LocalDateTime dataFine) {
         this.dataFine = dataFine;
     }
 

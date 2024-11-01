@@ -9,8 +9,8 @@
 <h1>Modifica Evento</h1>
 
 <form th:action="@{/admin/eventi/modificaEvento/aggiornaEvento/}" th:object="${evento}" method="post">
-<!--    metto l'id hidden perche' non deve essere modificato, ma voglio comunque che vada mandato al post   -->
-    <input type="hidden" th:field="*{id}" />
+    <!--    metto l'id hidden perche' non deve essere modificato, ma voglio comunque che vada mandato al post   -->
+    <input type="hidden" th:field="*{id}"/>
 
     <table>
         <tbody>
@@ -34,12 +34,18 @@
             <td><textarea id="descrizione" th:field="*{descrizione}" required></textarea></td>
         </tr>
         <tr>
-            <td><label for="dataInizio">Data inizio:</label></td>
-            <td><input type="date" id="dataInizio" th:field="*{dataInizio}" required></td>
+            <td><label for="dataFine">Data inizio:</label></td>
+            <td>
+                <input type="datetime-local" id="dataInizio" th:field="*{dataFine}"
+                       th:value="${#temporals.format(evento.dataInizio, 'yyyy-MM-dd''T''HH:mm')}" required>
+            </td>
         </tr>
         <tr>
             <td><label for="dataFine">Data fine:</label></td>
-            <td><input type="date" id="dataFine" th:field="*{dataFine}" required></td>
+            <td>
+                <input type="datetime-local" id="dataFine" th:field="*{dataFine}"
+                       th:value="${#temporals.format(evento.dataFine, 'yyyy-MM-dd''T''HH:mm')}" required>
+            </td>
         </tr>
         <tr>
             <td><label for="etaMinima">Età minima:</label></td>
