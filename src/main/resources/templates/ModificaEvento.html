@@ -8,33 +8,65 @@
 <body>
 <h1>Modifica Evento</h1>
 
-<table>
-    <tbody>
-    <tr th:if="${successMessage}">
-        <td colspan="2" class="alert alert-success">
-            <p th:text="${successMessage}"></p>
-        </td>
-    </tr>
-
-    <tr th:if="${errorMessage}">
-        <td colspan="2" class="alert alert-danger">
-            <p th:text="${errorMessage}"></p>
-        </td>
-    </tr>
-
-    <form th:action="@{/eventi/modificaEvento}" th:object="${evento}" method="post">
+<form th:action="@{/eventi/modificaEvento}" th:object="${evento}" method="post">
+    <table>
+        <tbody>
         <tr>
             <td><label for="titolo">Titolo:</label></td>
             <td><input type="text" id="titolo" th:field="*{titolo}" required></td>
         </tr>
+
+        <tr>
+            <td><label for="organizzatore">Organizzatore:</label></td>
+            <td><input type="text" id="organizzatore" th:field="*{organizzatore}" required></td>
+        </tr>
+
+        <tr>
+            <td><label for="idTipo">Tipo di evento:</label></td>
+            <td>
+                <select id="idTipo" th:field="*{idTipo}">
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td><label for="descrizione">Descrizione:</label></td>
+            <td><textarea id="descrizione" th:field="*{descrizione}" required></textarea></td>
+        </tr>
+
+        <tr>
+            <td><label for="dataInizio">Data inizio:</label></td>
+            <td><input type="date" id="dataInizio" th:field="*{dataInizio}" required></td>
+        </tr>
+
+        <tr>
+            <td><label for="dataFine">Data fine:</label></td>
+            <td><input type="date" id="dataFine" th:field="*{dataFine}" required></td>
+        </tr>
+
+        <tr>
+            <td><label for="etaMinima">Età minima:</label></td>
+            <td><input type="number" id="etaMinima" th:field="*{etaMinima}" required></td>
+        </tr>
+
+        <tr>
+            <td><label for="limitePersone">Limite persone:</label></td>
+            <td><input type="number" id="limitePersone" th:field="*{limitePersone}" required></td>
+        </tr>
+
+        <tr>
+            <td><label for="idStanza">ID stanza:</label></td>
+            <td><input type="number" id="idStanza" th:field="*{idStanza}" required></td>
+        </tr>
+
         <tr>
             <td colspan="2">
                 <button type="submit">Salva Evento</button>
             </td>
         </tr>
-    </form>
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</form>
 
 </body>
 </html>
