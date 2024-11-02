@@ -58,6 +58,18 @@ public class Evento {
     public Evento(int id, String titolo, String organizzatore, int mostraEvento, String descrizione, java.sql.Date dataIn, java.sql.Date dataFin, int etaMin, int limitePers, String stanza) {
     }
 
+    public Evento(String titolo, String descrizione, String organizzatore, LocalDateTime dataInizio, LocalDateTime dataFine, Integer limitePersone, Integer etaMinima, Integer idStanza, Tipo tipo) {
+        this.titolo = titolo;
+        this.descrizione = descrizione;
+        this.organizzatore = organizzatore;
+        this.dataInizio = dataInizio;
+        this.dataFine = dataFine;
+        this.limitePersone = limitePersone;
+        this.etaMinima = etaMinima;
+        this.idStanza = idStanza;
+        this.tipo = tipo;
+    }
+
     public Evento(Integer id, String titolo, String descrizione, String organizzatore, LocalDateTime dataInizio, LocalDateTime dataFine, Integer limitePersone, Integer etaMinima, Integer idStanza, Tipo tipo) {
         this.id = id;
         this.titolo = titolo;

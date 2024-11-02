@@ -19,20 +19,23 @@ public class Config {
     @Bean
     CommandLineRunner adminStarter(AdminDao adminRepo) {
         return args -> {
-            adminRepo.save(new Admin(1, "pippo@pera.it", "puppa", "Pippo", "Pera"));
+            adminRepo.save(new Admin("pippo@pera.it", "puppa", "Pippo", "Pera"));
+            adminRepo.save(new Admin("francesco@lanza.it", "lanza", "Francesco", "Lanza"));
         };
     }
 
     @Bean
     CommandLineRunner dataStarter(EventoDao eventiRepo, TipoDao tipiRepo) {
         return args -> {
-            // First create and save the Tipo
-            Tipo tipoArte = new Tipo(1, "Mostra d'Arte");
-            tipoArte = tipiRepo.save(tipoArte);  // Save and get the managed entity
 
-            // Now create the events using the saved Tipo
+            // TIPI
+            Tipo tipoMostra = new Tipo("Mostra d'Arte");
+            Tipo tipoEvento = new Tipo("Evento Sociale");
+            tipiRepo.save(tipoMostra);
+            tipiRepo.save(tipoEvento);
+
+            // MOSTRE
             eventiRepo.save(new Evento(
-                    1,
                     "Van Gogh",
                     "Mostra assurda",
                     "Amsterdam",
@@ -41,11 +44,10 @@ public class Config {
                     104,
                     8,
                     2,
-                    tipoArte  // Using the saved entity directly
+                    tipoMostra
             ));
 
             eventiRepo.save(new Evento(
-                    2,
                     "Picasso",
                     "Esposizione unica",
                     "Madrid",
@@ -54,11 +56,10 @@ public class Config {
                     105,
                     9,
                     3,
-                    tipoArte
+                    tipoMostra
             ));
 
             eventiRepo.save(new Evento(
-                    3,
                     "Monet",
                     "Impressionismo",
                     "Paris",
@@ -67,11 +68,10 @@ public class Config {
                     106,
                     10,
                     4,
-                    tipoArte
+                    tipoMostra
             ));
 
             eventiRepo.save(new Evento(
-                    4,
                     "Da Vinci",
                     "Rinascimento",
                     "Firenze",
@@ -80,11 +80,10 @@ public class Config {
                     107,
                     11,
                     5,
-                    tipoArte
+                    tipoMostra
             ));
 
             eventiRepo.save(new Evento(
-                    5,
                     "Michelangelo",
                     "Capolavori",
                     "Roma",
@@ -93,7 +92,20 @@ public class Config {
                     108,
                     12,
                     6,
-                    tipoArte
+                    tipoMostra
+            ));
+
+            // EVENTI
+            eventiRepo.save(new Evento(
+                    "Conferenza sull'ambiente",
+                    "Tutti ambientalisti quando si parla delle cose degli altri",
+                    "Francesco Mazzi",
+                    LocalDateTime.of(2024, 1, 8, 9, 30),
+                    LocalDateTime.of(2024, 2, 12, 13, 15),
+                    108,
+                    12,
+                    6,
+                    tipoEvento
             ));
         };
     }

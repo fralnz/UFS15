@@ -16,6 +16,10 @@ public class Tipo {
     public Tipo() {
     }
 
+    public Tipo(String nome) {
+        this.nome = nome;
+    }
+
     public Tipo(Integer id, String nome) {
         this.id = id;
         this.nome = nome;

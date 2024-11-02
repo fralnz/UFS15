@@ -30,6 +30,13 @@ public class Admin {
     public Admin() {
     }
 
+    public Admin(String mail, String password, String nome, String cognome) {
+        this.mail = mail;
+        this.password = password;
+        this.nome = nome;
+        this.cognome = cognome;
+    }
+
     public Admin(Integer id, String mail, String password, String nome, String cognome) {
         this.id = id;
         this.mail = mail;
