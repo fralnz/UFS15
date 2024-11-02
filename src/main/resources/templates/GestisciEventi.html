@@ -18,8 +18,9 @@
 
 <h1>Gestisci Eventi</h1>
 
-<form class="search-form">
-    <input type="text" placeholder="Cerca eventi..." aria-label="Cerca eventi">
+<form class="search-form" th:action="@{/admin/eventi/}" method="GET">
+    <input type="text" name="searchTerm" placeholder="Cerca eventi..."
+           aria-label="Cerca eventi" th:value="${searchTerm}">
     <button type="submit">Cerca</button>
 </form>
 

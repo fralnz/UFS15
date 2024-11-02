@@ -32,10 +32,28 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/eventi/", method = RequestMethod.GET)
-    public String adminDashboard(Model model, HttpSession session) {
-        List<Evento> eventi = eventiRepository.getEventiList();
+    public String eventi(@RequestParam(required = false) String searchTerm, Model model, HttpSession session) {
+        List<Evento> eventi;
+        if (searchTerm == null || searchTerm.trim().isEmpty()) {
+            eventi = eventiRepository.getEventiList();
+        } else {
+            eventi = eventiRepository.searchByTitolo(searchTerm);
+        }
         model.addAttribute("eventi", eventi);
         model.addAttribute("tipiList", tipoRepository.findAll());
+        return "GestisciEventi";
+    }
+
+    @RequestMapping("/eventi/{searchTerm}")
+    public String ceraEventi(@PathVariable("searchTerm") String s, Model model) {
+        if (s.isEmpty()) {
+            return "redirect:/admin/eventi/";
+        }
+        System.out.println("Cercando eventi con il nome: " + s);
+        List<Evento> eventi = eventiRepository.findByTitolo(s);
+        model.addAttribute("eventi", eventi);
+        model.addAttribute("tipiList", tipoRepository.findAll());
+        model.addAttribute("searchTerm", s);
         return "GestisciEventi";
     }
 
