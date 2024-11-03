@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <title>Gestisci Eventi</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/index.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/ListaEventi.css}">
+</head>
+<body>
+
+<header class="header">
+  <div class="header-left">
+    <a href="#">Home</a>
+  </div>
+  <div class="header-right">
+    <a th:href="@{Login.html}">Login</a>
+  </div>
+</header>
+
+<h1>Gestisci Utenti</h1>
+
+<form class="search-form" th:action="@{/admin/eventi/}" method="GET">
+  <input type="text" name="searchTerm" placeholder="Cerca eventi..."
+         aria-label="Cerca eventi" th:value="${searchTerm}">
+  <button type="submit">Cerca</button>
+</form>
+
+<div class="gestisci-evento-card-container">
+  <div th:each="user : ${adminList}" class="gestisci-evento-card">
+    <h2 th:text="${user.nome}">Nome utente</h2>
+    <p><strong>Cognome:</strong> <span th:text="${user.cognome}">Cognome</span></p>
+    <p><strong>Mail:</strong> <span th:text="${user.mail}">Mail</span></p>
+    <div class="button-container">
+      <a th:href="@{/admin/utenti/eliminaUtente/{id}(id=${user.id})}">Elimina</a>
+      <a th:href="@{/admin/utenti/}">Modifica</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

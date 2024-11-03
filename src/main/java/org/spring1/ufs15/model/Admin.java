@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import org.antlr.v4.runtime.misc.NotNull;
 
+import java.util.Objects;
+
 @Entity
 //@Table(name = "Admin")
 public class Admin {
@@ -83,6 +85,19 @@ public class Admin {
 
     public void setCognome(String cognome) {
         this.cognome = cognome;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Admin admin = (Admin) o;
+        return Objects.equals(id, admin.id) && Objects.equals(mail, admin.mail) && Objects.equals(password, admin.password) && Objects.equals(nome, admin.nome) && Objects.equals(cognome, admin.cognome);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, mail, password, nome, cognome);
     }
 
     @Override

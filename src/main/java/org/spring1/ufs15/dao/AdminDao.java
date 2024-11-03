@@ -11,4 +11,6 @@ import java.util.Optional;
 public interface AdminDao extends CrudRepository<Admin, Long> {
     @Query("SELECT a FROM Admin a WHERE a.mail = :mail AND a.password = :password")
     public Admin checkCredentials(String mail, String password);
+
+    Admin findById(long id);
 }

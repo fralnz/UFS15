@@ -23,7 +23,6 @@ public class LoginController {
         return "Login";
     }
 
-    // faccio un metodo uguale per la richiesta POST (ricevere i dati dal DB)
     @PostMapping(value = "/")
     public String postLogin(@Valid Admin admin, BindingResult bindingResult, HttpSession session) {
 
@@ -39,8 +38,19 @@ public class LoginController {
             return "redirect:/login/";
         } else {
             session.setAttribute("loggedUser", user);
-            return "redirect:/eventi/";
+            return "redirect:/admin/dashboard/";
         }
+    }
+
+    @RequestMapping(value = "/logout/")
+    public String postLogout(HttpSession session) {
+        Admin user = (Admin) session.getAttribute("loggedUser");
+        if (user == null) {
+            return "redirect:/login/";
+        }
+        session.removeAttribute("loggedUser");
+        return "redirect:/";
+
     }
 
 }
