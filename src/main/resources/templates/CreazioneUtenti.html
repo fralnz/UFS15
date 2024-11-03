@@ -28,6 +28,9 @@
             <td><input type="password" id="password" th:field="*{password}" required></td>
         </tr>
         <tr>
+            <td><p th:text="${errorMessage}"/></td>
+        </tr>
+        <tr>
             <td colspan="2">
                 <button type="submit">Salva Admin</button>
             </td>

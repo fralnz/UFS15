@@ -151,7 +151,15 @@ public class AdminController {
     }
 
     @PostMapping("/utenti/creaAdmin/")
-    public String postCreaAdmin(@Valid Admin a, BindingResult bindingResult) {
+    public String postCreaAdmin(@Valid Admin a, BindingResult bindingResult, Model model, HttpSession session) {
+        if (session.getAttribute("loggedUser") == null) {
+            return "redirect:/login/";
+        }
+        if (adminRepository.findByMail(a.getMail()) != null) {
+            model.addAttribute("admin", a);
+            model.addAttribute("errorMessage", "esiste gia' un utente associato a quell'email");
+            return ("CreazioneUtenti");
+        }
         adminRepository.save(a);
         return "redirect:/admin/utenti/";
     }
