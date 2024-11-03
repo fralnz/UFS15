@@ -15,7 +15,6 @@ public class Admin {
     private Integer id;
 
     @NotNull
-    @Size(min = 1, max = 25)
     @Pattern(regexp = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
             + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$",
             message = "La mail non e' valida: esempio@mail.it")
@@ -28,10 +27,14 @@ public class Admin {
 
     @NotNull
     @Size(min = 1, max = 25)
+    @Pattern(regexp = "^[a-zA-Z]+$",
+            message = "Il nome contiene caratteri non consentiti")
     String nome;
 
     @NotNull
     @Size(min = 1, max = 25)
+    @Pattern(regexp = "^[a-zA-Z]+$",
+            message = "Il cognome contiene caratteri non consentiti")
     String cognome;
 
     public Admin() {
