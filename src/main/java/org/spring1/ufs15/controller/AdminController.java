@@ -4,6 +4,7 @@ import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.spring1.ufs15.dao.EventoDao;
 import org.spring1.ufs15.dao.TipoDao;
+import org.spring1.ufs15.model.Admin;
 import org.spring1.ufs15.model.Evento;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,13 +27,21 @@ public class AdminController {
     private TipoDao tipoRepository;
 
 
-    @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
+    @RequestMapping(value = "/dashboard/", method = RequestMethod.GET)
     public String adminDashboard(HttpSession session) {
+        Admin user = (Admin) session.getAttribute("loggedUser");
+        if (user == null) {
+            return "redirect:/login/";
+        }
         return "Dashboard";
     }
 
     @RequestMapping(value = "/eventi/", method = RequestMethod.GET)
     public String eventi(@RequestParam(required = false) String searchTerm, Model model, HttpSession session) {
+        Admin user = (Admin) session.getAttribute("loggedUser");
+        if (user == null) {
+            return "redirect:/login/";
+        }
         List<Evento> eventi;
         if (searchTerm == null || searchTerm.trim().isEmpty()) {
             eventi = eventiRepository.getEventiList();
@@ -45,7 +54,11 @@ public class AdminController {
     }
 
     @RequestMapping("/eventi/{searchTerm}")
-    public String ceraEventi(@PathVariable("searchTerm") String s, Model model) {
+    public String ceraEventi(@PathVariable("searchTerm") String s, Model model, HttpSession session) {
+        Admin user = (Admin) session.getAttribute("loggedUser");
+        if (user == null) {
+            return "redirect:/login/";
+        }
         if (s.isEmpty()) {
             return "redirect:/admin/eventi/";
         }
@@ -57,15 +70,25 @@ public class AdminController {
         return "GestisciEventi";
     }
 
+    // OGNI TANTO MI DA QUESTO URL: http://localhost:8080/admin/eventi/;jsessionid=BAC7309E66B1D59D95824FA7E6576BA5?searchTerm=Picasso
+
     @RequestMapping("/eventi/eliminaEvento/{id}")
-    public String deleteEvento(@PathVariable("id") long id) {
+    public String deleteEvento(@PathVariable("id") long id, HttpSession session) {
+        Admin user = (Admin) session.getAttribute("loggedUser");
+        if (user == null) {
+            return "redirect:/login/";
+        }
         System.out.println(id);
         eventiRepository.deleteById(id);
         return "redirect:/admin/eventi/";
     }
 
     @RequestMapping("/eventi/modificaEvento/{id}")
-    public String editEvento(@PathVariable("id") long id, Model model) {
+    public String editEvento(@PathVariable("id") long id, Model model, HttpSession session) {
+        Admin user = (Admin) session.getAttribute("loggedUser");
+        if (user == null) {
+            return "redirect:/login/";
+        }
         Evento evento = eventiRepository.findById(id);
         if (evento == null) {
             return (null);
@@ -77,7 +100,11 @@ public class AdminController {
     }
 
     @PostMapping("/eventi/modificaEvento/aggiornaEvento/")
-    public String save(@Valid Evento e, BindingResult bindingResult) {
+    public String save(@Valid Evento e, BindingResult bindingResult, HttpSession session) {
+        Admin user = (Admin) session.getAttribute("loggedUser");
+        if (user == null) {
+            return "redirect:/login/";
+        }
         System.out.println(e);
         if (bindingResult.hasErrors()) {
             System.out.println(bindingResult.getAllErrors());
