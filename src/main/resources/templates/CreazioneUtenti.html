@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Creazione Admin</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/index.css}">
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>Crea Nuovo Amministratore</h1>
+
+<table>
+    <tbody>
+    <form th:action="@{/admin/utenti/creaAdmin/}" th:object="${admin}" method="post">
+        <tr>
+            <td><label for="nome">Nome:</label></td>
+            <td><input type="text" id="nome" th:field="*{nome}" required></td>
+        </tr>
+        <tr>
+            <td><label for="cognome">Cognome:</label></td>
+            <td><input type="text" id="cognome" th:field="*{cognome}" required></td>
+        </tr>
+        <tr>
+            <td><label for="mail">Email:</label></td>
+            <td><input type="email" id="mail" th:field="*{mail}" required></td>
+        </tr>
+        <tr>
+            <td><label for="password">Password:</label></td>
+            <td><input type="password" id="password" th:field="*{password}" required></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="submit">Salva Admin</button>
+            </td>
+        </tr>
+    </form>
+    </tbody>
+</table>
+
+</body>
+</html>

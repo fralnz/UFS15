@@ -19,8 +19,8 @@ public class Config {
     @Bean
     CommandLineRunner adminStarter(AdminDao adminRepo) {
         return args -> {
-            adminRepo.save(new Admin("pippo@pera.it", "puppa", "Pippo", "Pera"));
-            adminRepo.save(new Admin("francesco@lanza.it", "lanza", "Francesco", "Lanza"));
+            adminRepo.save(new Admin("pippo@pera.it", "SafePass@8", "Pippo", "Pera"));
+            adminRepo.save(new Admin("francesco@lanza.it", "SafePass@8", "Francesco", "Lanza"));
         };
     }
 

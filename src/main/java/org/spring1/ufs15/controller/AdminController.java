@@ -141,4 +141,19 @@ public class AdminController {
         return "redirect:/admin/utenti/";
     }
 
+    @RequestMapping("/utenti/creaAdmin/")
+    public String creaAdmin(Model model, HttpSession session) {
+        if (session.getAttribute("loggedUser") == null) {
+            return "redirect:/login/";
+        }
+        model.addAttribute("admin", new Admin());
+        return "CreazioneUtenti";
+    }
+
+    @PostMapping("/utenti/creaAdmin/")
+    public String postCreaAdmin(@Valid Admin a, BindingResult bindingResult) {
+        adminRepository.save(a);
+        return "redirect:/admin/utenti/";
+    }
+
 }

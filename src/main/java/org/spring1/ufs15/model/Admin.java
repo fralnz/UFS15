@@ -1,6 +1,7 @@
 package org.spring1.ufs15.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import org.antlr.v4.runtime.misc.NotNull;
 
@@ -18,7 +19,8 @@ public class Admin {
     String mail;
 
     @NotNull
-    @Size(min = 1, max = 25)
+    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[#$@!%&*?])[A-Za-z\\d#$@!%&*?]{8,}$",
+            message = "La password deve essere composta da almeno 8 caratteri, contenere almeno una lettera maiuscola, una minuscola, un numero e un carattere speciale")
     String password;
 
     @NotNull
