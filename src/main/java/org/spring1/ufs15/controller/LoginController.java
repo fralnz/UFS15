@@ -18,7 +18,10 @@ public class LoginController {
     AdminDao adminRepository;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String postLoginPage(Model model) {
+    public String postLoginPage(Model model, HttpSession session) {
+        if (session.getAttribute("loggedUser") != null) {
+            return "redirect:/admin/dashboard/";
+        }
         model.addAttribute("admin", new Admin());
         return "Login";
     }
