@@ -6,16 +6,11 @@ import org.spring1.ufs15.dao.AdminDao;
 import org.spring1.ufs15.dao.EventoDao;
 import org.spring1.ufs15.dao.TipoDao;
 import org.spring1.ufs15.model.Admin;
-import org.spring1.ufs15.model.Evento;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-
-import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/admin/")

@@ -1,9 +1,6 @@
 .gestisci-evento-card-container {
     display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    margin: 1rem;
-    justify-content: center;
+
 }
 
 .gestisci-evento-card {
@@ -14,6 +11,12 @@
     padding: 20px;
     text-align: left;
     margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.gestisci-evento-card img {
+    max-width: 49%;
+    max-height: 30%;
 }
 
 .gestisci-evento-card h2 {
@@ -46,4 +49,19 @@
 .delete-button {
     min-width: 200px;
     max-width: calc(50% - 10px);
+}
+
+.evento-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.evento-info-testo {
+    width: 49%;
+}
+
+.evento-info-testo p {
+    width: 49%;
 }

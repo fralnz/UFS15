@@ -27,14 +27,10 @@ public class Admin {
 
     @NotNull
     @Size(min = 1, max = 25)
-    @Pattern(regexp = "^[a-zA-Z]+$",
-            message = "Il nome contiene caratteri non consentiti")
     String nome;
 
     @NotNull
     @Size(min = 1, max = 25)
-    @Pattern(regexp = "^[a-zA-Z]+$",
-            message = "Il cognome contiene caratteri non consentiti")
     String cognome;
 
     public Admin() {
