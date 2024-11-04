@@ -21,10 +21,11 @@ public class Config {
         return args -> {
             adminRepo.save(new Admin("pippo@pera.it", "SafePass@8", "Pippo", "Pera"));
             adminRepo.save(new Admin("francesco@lanza.it", "SafePass@8", "Francesco", "Lanza"));
-            adminRepo.save(new Admin("roma@sud.it", "Erpupone@10", "Pipino", "Breve"));
-            adminRepo.save(new Admin("leone@coniglio.it", "Tonyy@98", "Leone", "Coniglio"));
-            adminRepo.save(new Admin("vegas@sony.it", "Editing@9", "Vegas", "Sony"));
-            adminRepo.save(new Admin("riccardo@trevisani.it", "Fontana@57", "Riccardo", "Trevisani"));
+            adminRepo.save(new Admin("giulia@banica.it", "SafePass@8", "Giulia", "Banica"));
+            adminRepo.save(new Admin("jacopo@grassi.it", "SafePass@8", "Jacopo", "Grassi"));
+            adminRepo.save(new Admin("dario@chin.it", "SafePass@8", "Dario", "Chin"));
+            adminRepo.save(new Admin("francesco@mazzi.it", "SafePass@8", "Francesco", "Mazzi"));
+            adminRepo.save(new Admin("federico@giacomantonio.it", "SafePass@8", "Federico", "Giacomantonio"));
         };
     }
 
@@ -48,7 +49,8 @@ public class Config {
                     104,
                     8,
                     2,
-                    tipoMostra
+                    tipoMostra,
+                    "https://i.etsystatic.com/39443269/r/il/7df356/4980122961/il_fullxfull.4980122961_dgl4.jpg"
             ));
 
             eventiRepo.save(new Evento(
@@ -60,7 +62,8 @@ public class Config {
                     105,
                     9,
                     3,
-                    tipoMostra
+                    tipoMostra,
+                    "https://www.itagnol.com/wp-content/uploads/2017/06/guernica-picasso.jpg"
             ));
 
             eventiRepo.save(new Evento(
@@ -72,7 +75,8 @@ public class Config {
                     106,
                     10,
                     4,
-                    tipoMostra
+                    tipoMostra ,
+                    "https://www.storicang.it/medio/2021/11/11/claude-monet-bain-a-la-grenouillere-1869-metropolitan-museum-of-art-new-york_bf22f32f_1200x630.jpg"
             ));
 
             eventiRepo.save(new Evento(
@@ -96,7 +100,8 @@ public class Config {
                     108,
                     12,
                     6,
-                    tipoMostra
+                    tipoMostra,
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/800px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg"
             ));
 
             // EVENTI
@@ -109,7 +114,8 @@ public class Config {
                     108,
                     12,
                     6,
-                    tipoEvento
+                    tipoEvento,
+                    "https://www.missionescienza.it/wp-content/uploads/2021/05/ambiente.jpg"
             ));
         };
     }
