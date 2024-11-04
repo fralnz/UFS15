@@ -88,7 +88,8 @@ public class Config {
                     107,
                     11,
                     5,
-                    tipoMostra
+                    tipoMostra,
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/800px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg"
             ));
 
             eventiRepo.save(new Evento(
@@ -101,7 +102,8 @@ public class Config {
                     12,
                     6,
                     tipoMostra,
-                    "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/800px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg"
+                    "https://www.storicang.it/medio/2020/06/25/la-creazione-di-adamo-dettaglio-della-cappella-sistina_884eb509_800x372.jpg"
+
             ));
 
             // EVENTI
