@@ -14,6 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class HomeController {
     @RequestMapping(value = "/")
     public String homeRedirect() {
-        return "redirect:/login/";
+        return "PaginaMuseo";
     }
 }
