@@ -8,14 +8,7 @@
 <body>
 
 
-<header class="header">
-    <div class="header-left">
-        <a href="#">Home</a>
-    </div>
-    <div class="header-right">
-        <a th:href="@{Login.html}">Login</a>
-    </div>
-</header>
+<div th:replace="fragments/Header :: header"></div>
 
 <h1>Museo ITSAR</h1>
 
