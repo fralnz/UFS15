@@ -44,6 +44,8 @@
         <p><strong>Et&agrave; Minima:</strong> <span th:text="${evento.etaMinima}">Et&agrave; Minima</span></p>
         <p><strong>Limite Persone:</strong> <span th:text="${evento.limitePersone}">Limite Persone</span></p>
         <p><strong>Stanza:</strong> <span th:text="${evento.idStanza}">Numero Stanza</span></p>
+        <img th:src="${evento.urlImmagine}" alt="copertina evento" style="max-width: 100%">
+
         <div class="button-container">
             <a th:href="@{/admin/eventi/eliminaEvento/{id}(id=${evento.id})}">Elimina</a>
             <a th:href="@{/admin/eventi/modificaEvento/{id}(id=${evento.id})}">Modifica</a>
