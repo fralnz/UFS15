@@ -4,6 +4,7 @@ package org.spring1.ufs15.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import org.antlr.v4.runtime.misc.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -11,6 +12,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 @Table(name = "Eventi")
@@ -54,37 +56,38 @@ public class Evento {
     @NotNull
     Integer idStanza;
 
+    @Pattern(regexp = "^(https?://)?" +
+            "(www\\.)?" +
+            "[a-zA-Z0-9+&@#/%?=~_|!:,.;]*" +
+            "\\.[a-zA-Z]{2,}$")
+    String urlImmagine;
 
-    public Evento(int id, String titolo, String organizzatore, int mostraEvento, String descrizione, java.sql.Date dataIn, java.sql.Date dataFin, int etaMin, int limitePers, String stanza) {
+    public Evento() {
     }
 
     public Evento(String titolo, String descrizione, String organizzatore, LocalDateTime dataInizio, LocalDateTime dataFine, Integer limitePersone, Integer etaMinima, Integer idStanza, Tipo tipo) {
         this.titolo = titolo;
-        this.descrizione = descrizione;
         this.organizzatore = organizzatore;
+        this.tipo = tipo;
+        this.descrizione = descrizione;
         this.dataInizio = dataInizio;
         this.dataFine = dataFine;
-        this.limitePersone = limitePersone;
         this.etaMinima = etaMinima;
+        this.limitePersone = limitePersone;
         this.idStanza = idStanza;
-        this.tipo = tipo;
     }
 
-    public Evento(Integer id, String titolo, String descrizione, String organizzatore, LocalDateTime dataInizio, LocalDateTime dataFine, Integer limitePersone, Integer etaMinima, Integer idStanza, Tipo tipo) {
-        this.id = id;
+    public Evento(String titolo, String descrizione, String organizzatore, LocalDateTime dataInizio, LocalDateTime dataFine, Integer limitePersone, Integer etaMinima, Integer idStanza, Tipo tipo, String urlImmagine) {
         this.titolo = titolo;
-        this.descrizione = descrizione;
         this.organizzatore = organizzatore;
+        this.tipo = tipo;
+        this.descrizione = descrizione;
         this.dataInizio = dataInizio;
         this.dataFine = dataFine;
-        this.limitePersone = limitePersone;
         this.etaMinima = etaMinima;
+        this.limitePersone = limitePersone;
         this.idStanza = idStanza;
-        this.tipo = tipo;
-    }
-
-    public Evento() {
-
+        this.urlImmagine = urlImmagine;
     }
 
     public Integer getId() {
@@ -103,20 +106,28 @@ public class Evento {
         this.titolo = titolo;
     }
 
-    public String getDescrizione() {
-        return descrizione;
-    }
-
-    public void setDescrizione(String descrizione) {
-        this.descrizione = descrizione;
-    }
-
     public String getOrganizzatore() {
         return organizzatore;
     }
 
     public void setOrganizzatore(String organizzatore) {
         this.organizzatore = organizzatore;
+    }
+
+    public Tipo getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(Tipo tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getDescrizione() {
+        return descrizione;
+    }
+
+    public void setDescrizione(String descrizione) {
+        this.descrizione = descrizione;
     }
 
     public LocalDateTime getDataInizio() {
@@ -135,20 +146,20 @@ public class Evento {
         this.dataFine = dataFine;
     }
 
-    public Integer getLimitePersone() {
-        return limitePersone;
-    }
-
-    public void setLimitePersone(Integer limitePersone) {
-        this.limitePersone = limitePersone;
-    }
-
     public Integer getEtaMinima() {
         return etaMinima;
     }
 
     public void setEtaMinima(Integer etaMinima) {
         this.etaMinima = etaMinima;
+    }
+
+    public Integer getLimitePersone() {
+        return limitePersone;
+    }
+
+    public void setLimitePersone(Integer limitePersone) {
+        this.limitePersone = limitePersone;
     }
 
     public Integer getIdStanza() {
@@ -159,12 +170,25 @@ public class Evento {
         this.idStanza = idStanza;
     }
 
-    public Tipo getTipo() {
-        return tipo;
+    public String getUrlImmagine() {
+        return urlImmagine;
     }
 
-    public void setTipo(Tipo tipo) {
-        this.tipo = tipo;
+    public void setUrlImmagine(String urlImmagine) {
+        this.urlImmagine = urlImmagine;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Evento evento = (Evento) o;
+        return Objects.equals(id, evento.id) && Objects.equals(titolo, evento.titolo) && Objects.equals(organizzatore, evento.organizzatore) && Objects.equals(tipo, evento.tipo) && Objects.equals(descrizione, evento.descrizione) && Objects.equals(dataInizio, evento.dataInizio) && Objects.equals(dataFine, evento.dataFine) && Objects.equals(etaMinima, evento.etaMinima) && Objects.equals(limitePersone, evento.limitePersone) && Objects.equals(idStanza, evento.idStanza) && Objects.equals(urlImmagine, evento.urlImmagine);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, titolo, organizzatore, tipo, descrizione, dataInizio, dataFine, etaMinima, limitePersone, idStanza, urlImmagine);
     }
 
     @Override
@@ -180,6 +204,7 @@ public class Evento {
                 ", etaMinima=" + etaMinima +
                 ", limitePersone=" + limitePersone +
                 ", idStanza=" + idStanza +
+                ", urlImmagine='" + urlImmagine + '\'' +
                 '}';
     }
 }
