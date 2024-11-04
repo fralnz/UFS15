@@ -41,7 +41,7 @@
         <tr>
             <td><label for="dataFine">Data inizio:</label></td>
             <td>
-                <input type="datetime-local" id="dataInizio" th:field="*{dataFine}"
+                <input type="datetime-local" id="dataInizio" th:field="*{dataInizio}"
                        th:value="${#temporals.format(evento.dataInizio, 'yyyy-MM-dd''T''HH:mm')}" required>
             </td>
         </tr>
