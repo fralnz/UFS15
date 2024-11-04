@@ -9,15 +9,6 @@
 
 <div th:replace="fragments/Header :: header"></div>
 
-<header class="header">
-  <div class="header-left">
-    <a href="#">Home</a>
-  </div>
-  <div class="header-right">
-    <a th:href="@{Login.html}">Login</a>
-  </div>
-</header>
-
 <h1>Gestisci Utenti</h1>
 
 <form class="search-form" th:action="@{/admin/eventi/}" method="GET">
