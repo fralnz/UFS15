@@ -30,6 +30,11 @@ public class AdminController {
     @Autowired
     AdminDao adminRepository;
 
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String redirectToDashBoard() {
+        return "redirect:/admin/dashboard";
+    }
+
     @RequestMapping(value = "/dashboard/", method = RequestMethod.GET)
     public String adminDashboard(HttpSession session) {
         Admin user = (Admin) session.getAttribute("loggedUser");
@@ -37,79 +42,6 @@ public class AdminController {
             return "redirect:/login/";
         }
         return "Dashboard";
-    }
-
-    @RequestMapping(value = "/eventi/", method = RequestMethod.GET)
-    public String eventi(@RequestParam(required = false) String searchTerm, Model model, HttpSession session) {
-        if (session.getAttribute("loggedUser") == null) {
-            return "redirect:/login/";
-        }
-        List<Evento> eventi;
-        if (searchTerm == null || searchTerm.trim().isEmpty()) {
-            eventi = eventiRepository.getEventiList();
-        } else {
-            eventi = eventiRepository.searchByTitolo(searchTerm);
-        }
-        model.addAttribute("eventi", eventi);
-        model.addAttribute("tipiList", tipoRepository.findAll());
-        return "GestisciEventi";
-    }
-
-    @RequestMapping("/eventi/{searchTerm}")
-    public String cercaEventi(@PathVariable("searchTerm") String s, Model model, HttpSession session) {
-        if (session.getAttribute("loggedUser") == null) {
-            return "redirect:/login/";
-        }
-        if (s.isEmpty()) {
-            return "redirect:/admin/eventi/";
-        }
-        System.out.println("Cercando eventi con il nome: " + s);
-        List<Evento> eventi = eventiRepository.findByTitolo(s);
-        model.addAttribute("eventi", eventi);
-        model.addAttribute("tipiList", tipoRepository.findAll());
-        model.addAttribute("searchTerm", s);
-        return "GestisciEventi";
-    }
-
-    // OGNI TANTO MI DA QUESTO URL: http://localhost:8080/admin/eventi/;jsessionid=BAC7309E66B1D59D95824FA7E6576BA5?searchTerm=Picasso
-
-    @RequestMapping("/eventi/eliminaEvento/{id}")
-    public String eliminaEvento(@PathVariable("id") long id, HttpSession session) {
-        if (session.getAttribute("loggedUser") == null) {
-            return "redirect:/login/";
-        }
-        System.out.println(id);
-        eventiRepository.deleteById(id);
-        return "redirect:/admin/eventi/";
-    }
-
-    @RequestMapping("/eventi/modificaEvento/{id}")
-    public String modificaEvento(@PathVariable("id") long id, Model model, HttpSession session) {
-        if (session.getAttribute("loggedUser") == null) {
-            return "redirect:/login/";
-        }
-        Evento evento = eventiRepository.findById(id);
-        if (evento == null) {
-            return (null);
-        }
-        model.addAttribute("evento", evento);
-        model.addAttribute("tipiList", tipoRepository.findAll());
-
-        return "ModificaEvento";
-    }
-
-    @PostMapping("/eventi/modificaEvento/aggiornaEvento/")
-    public String aggiornaEvento(@Valid Evento e, BindingResult bindingResult, HttpSession session) {
-        if (session.getAttribute("loggedUser") == null) {
-            return "redirect:/login/";
-        }
-        System.out.println(e);
-        if (bindingResult.hasErrors()) {
-            System.out.println(bindingResult.getAllErrors());
-            return (null);
-        }
-        eventiRepository.save(e);
-        return "redirect:/admin/eventi/";
     }
 
     @RequestMapping("/utenti/")
