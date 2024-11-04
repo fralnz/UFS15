@@ -16,6 +16,8 @@
     </div>
 </header>
 
+<div th:replace="fragments/Header :: header"></div>
+
 <h1>Gestisci Eventi</h1>
 
 <form class="search-form" th:action="@{/admin/eventi/}" method="GET">
