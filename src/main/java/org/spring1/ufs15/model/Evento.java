@@ -56,10 +56,6 @@ public class Evento {
     @NotNull
     Integer idStanza;
 
-    @Pattern(regexp = "^(https?://)?" +
-            "(www\\.)?" +
-            "[a-zA-Z0-9+&@#/%?=~_|!:,.;]*" +
-            "\\.[a-zA-Z]{2,}$")
     String urlImmagine;
 
     public Evento() {
