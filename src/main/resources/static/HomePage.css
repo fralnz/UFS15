@@ -1,0 +1,103 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: "Alef", sans-serif;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+h1 img {
+    height: 5rem;
+    align-self: center;
+}
+
+h2 {
+    font-size: 3rem;
+    font-weight: 600;
+    padding: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+.titolo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.vetrina {
+    display: block;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.vetrina-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 1rem 2rem;
+}
+
+.vetrina-info a {
+    font-size: 1.1rem;
+    color: white;
+    align-self: flex-end;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: calc(100% - 4rem);
+    flex-wrap: nowrap;
+    gap: 2rem;
+    padding: 0 2rem 2rem;
+    overflow: hidden;
+    -webkit-mask-image: -webkit-linear-gradient(to right, black calc(100% - 1rem), transparent 100%);
+    mask-image: linear-gradient(90deg, black calc(100% - 1rem), transparent 100%);
+}
+
+.card {
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    width: 20rem;
+    min-width: 20rem;
+    height: 24rem;
+    min-height: 24rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: .2s;
+}
+
+.card:hover {
+    cursor: pointer;
+    box-shadow: rgba(238, 75, 43, 0.4) -5px 5px,
+    rgba(238, 75, 43, 0.3) -10px 10px,
+    rgba(238, 75, 43, 0.2) -15px 15px,
+    rgba(238, 75, 43, 0.1) -20px 20px,
+    rgba(238, 75, 43, 0.05) -25px 25px;
+
+}
+
+.card-info {
+    padding: 8px;
+}
+
+.card img {
+    width: 100%;
+    height: 50%;
+    object-fit: cover
+}
