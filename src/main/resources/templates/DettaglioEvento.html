@@ -3,68 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Dettaglio</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/DettaglioEvento.css}">
 </head>
 <body>
+<div th:replace="fragments/Header :: header"></div>
 <table>
 
-    <tbody>
-    <tr>
-        <td><p for="titolo">Titolo:</p></td>
-        <td><p type="text" id="titolo" th:text="${evento.titolo}" >Titolo Evento</td>
-    </tr>
+    <p><strong>Titolo:</strong> <span type="text" id="titolo" th:text="${evento.titolo}" ></span></p>
+    <p><strong>Organizzatore: </strong> <span th:text="${evento.organizzatore}"></span></p>
+    <p><strong>Tipo Evento: </strong><span th:text="${evento.tipo.nome}" ></span> </p>
+    <p><strong>Descrizione: </strong><span th:text="${evento.descrizione}" ></span></p>
+    <p><strong>Data Inizio: </strong><span th:text="${#temporals.format(evento.dataInizio,  'dd/MM/yyyy')}"></span> </p>
+    <p><strong>Data Fine: </strong> <span th:text="${#temporals.format(evento.dataFine,  'dd/MM/yyyy')}"> </span></p>
+    <p><strng>Età Minima:</strng> <span th:text="${evento.etaMinima}"> </span></p>
+    <p><strng>Limite Perosne:</strng> <span th:text="*{evento.limitePersone}"> </span></p>
+    <p><strng>Stanza:</strng> <span th:text="${evento.idStanza}"> </span></p>
 
-    <tr>
-        <td><p for="organizzatore">Organizzatore:</p></td>
-        <td><p type="text" id="organizzatore" th:text="${evento.organizzatore}" ></td>
-    </tr>
-
-    <tr>
-        <td><p for="tipo">Tipo Evento:</p></td>
-        <td>
-            <p id="tipo" th:text="${evento.tipo.nome}"> </p>
-        </td>
-
-    </tr>
-    <tr>
-        <td><p for="descrizione">Descrizione:</p></td>
-        <td><p id="descrizione" th:text="${evento.descrizione}" ></p></td>
-    </tr>
-
-    <tr>
-        <td><p for="dataFine">Data inizio:</p></td>
-        <td>
-            <p type="datetime-local" id="dataInizio"
-                   th:text="${#temporals.format(evento.dataInizio,  'dd/MM/yyyy')}" >
-        </td>
-    </tr>
-
-    <tr>
-        <td><p for="dataFine">Data fine:</p></td>
-        <td>
-            <p type="datetime-local" id="dataFine"
-                   th:text="${#temporals.format(evento.dataFine,  'dd/MM/yyyy')}" >
-        </td>
-    </tr>
-
-    <tr>
-        <td><p for="etaMinima">Età minima:</p></td>
-        <td><p type="number" id="etaMinima" th:text="${evento.etaMinima}" ></td>
-    </tr>
-
-    <tr>
-        <td><p for="limitePersone">Limite persone:</p></td>
-        <td><p type="number" id="limitePersone" th:text="*{evento.limitePersone}" ></td>
-    </tr>
-
-    <tr>
-        <td><p for="idStanza">ID stanza:</p></td>
-        <td><p type="number" id="idStanza" th:text="${evento.idStanza}" ></td>
-    </tr>
-
-
-    </tbody>
-    <a><img th:src="${evento.urlImmagine}" alt="copertina evento">
-    </a>
+    <a><img th:src="${evento.urlImmagine}" alt="copertina evento"></a>
 
 </table>
 </body>
