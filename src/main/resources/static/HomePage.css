@@ -34,6 +34,8 @@ h1 {
 h1 img {
     height: 5rem;
     align-self: center;
+    color: white;
+    text-decoration: none;
 }
 
 h2 {
