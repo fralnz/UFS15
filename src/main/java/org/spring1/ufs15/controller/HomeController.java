@@ -53,7 +53,7 @@ public class HomeController {
         model.addAttribute("evento", evento);
         model.addAttribute("tipiList", tipoRepository.findAll());
 
-        return "DettagliEvento";
+        return "DettaglioEvento";
     }
 
 }
