@@ -62,9 +62,14 @@ h3 {
     flex-wrap: nowrap;
     gap: 2rem;
     padding: 0 2rem 2rem;
-    overflow: hidden;
+    overflow: scroll;
     -webkit-mask-image: -webkit-linear-gradient(to right, black calc(100% - 1rem), transparent 100%);
     mask-image: linear-gradient(90deg, black calc(100% - 1rem), transparent 100%);
+    scrollbar-width: none;
+}
+
+.card-container::-webkit-scrollbar{
+    display: none;
 }
 
 .card {
@@ -73,7 +78,7 @@ h3 {
     border-radius: 10px;
     width: 20rem;
     min-width: 20rem;
-    height: 24rem;
+    height: 25rem;
     min-height: 24rem;
     overflow: hidden;
     display: flex;
@@ -98,6 +103,14 @@ h3 {
 
 .card img {
     width: 100%;
-    height: 50%;
+    height: 45%;
     object-fit: cover
+}
+
+@media (orientation: portrait) {
+    .card-container {
+        flex-wrap: wrap;
+        max-height: 30dvh;
+        justify-content: center;
+    }
 }
