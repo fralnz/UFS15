@@ -235,6 +235,55 @@ public class Config {
                     tipoEvento,
                     "https://www.salonemilano.it/sites/default/files/styles/libero/public/images/articles/2021-08/Mostra_Munari_Montessori_H_Tavolo-Interagire-e-Manipolare.jpg.webp?itok=YEmzsTFJ"
             ));
+            eventiRepo.save(new Evento(
+                    "Un Giorno da Paleontologo",
+                    "Sulle Tracce dei Dinosauri: Esperienza con Fossili e Ricostruzioni",
+                    "Federico Giacomantonio",
+                    LocalDateTime.of(2024, 11, 20, 10, 30),
+                    LocalDateTime.of(2024, 12, 22, 14, 30),
+                    108,
+                    12,
+                    6,
+                    tipoEvento,
+                    "https://www.meteoweb.eu/wp-content/uploads/2024/11/DALLE-2024-11-04-17.15.18-A-realistic-horizontal-image-depicting-an-excavation-site-where-paleontologists-are-digging-and-examining-fossils-in-a-barren-rocky-landscape.-The-s.webp"
+            ));
+            eventiRepo.save(new Evento(
+                    "Scienza e Mistero",
+                    "La Scienza dell’Inspiegabile: Viaggio tra Fenomeni e Misteri",
+                    "Valentina Moretti",
+                    LocalDateTime.of(2024, 3, 15, 10, 0),
+                    LocalDateTime.of(2024, 4, 18, 12, 30),
+                    108,
+                    12,
+                    6,
+                    tipoEvento,
+                    "https://www.elzevir.it/wp-content/uploads/art/Scopri_il_nuovo_thriller_di_Gigi_Paoli_che_esplora_i_limiti_etici_della_scienza.jpg"
+            ));
+            eventiRepo.save(new Evento(
+                    "Natura e Colori",
+                    "Pittura e Natura: Laboratorio Creativo all’Aperto",
+                    "Sara Colombo",
+                    LocalDateTime.of(2024, 7, 10, 9, 30),
+                    LocalDateTime.of(2024, 8, 15, 12, 0),
+                    108,
+                    12,
+                    6,
+                    tipoEvento,
+                    "https://www.altrasardegna.it/wp-content/uploads/2023/04/2-1.jpg"
+            ));
+
+            eventiRepo.save(new Evento(
+                    "Miti e Leggende",
+                    "Eroi e Dei: Alla Scoperta della Mitologia Greca",
+                    "Marta Bianchi",
+                    LocalDateTime.of(2024, 9, 5, 11, 0),
+                    LocalDateTime.of(2024, 10, 10, 13, 0),
+                    108,
+                    12,
+                    6,
+                    tipoEvento,
+                    "https://www.worldhistory.org/img/c/p/1600x900/13802.jpg"
+            ));
         };
     }
 }
