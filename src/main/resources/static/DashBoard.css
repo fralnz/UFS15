@@ -25,11 +25,11 @@ a {
     transition: .3s;
 }
 
-.db-button:hover{
+.db-button:hover {
     transform: translateY(5px);
 }
 
-.db-button p{
+.db-button p {
     font-size: 2rem;
 }
 
@@ -48,6 +48,20 @@ a {
 
 .color-white:hover {
     color: #e71112;
+}
+
+.logout {
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logout a {
+    color: #e71112;
+    text-decoration: underline;
+    text-align: center;
 }
 
 @media (orientation: portrait) {
