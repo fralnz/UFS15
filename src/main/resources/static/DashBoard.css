@@ -1,0 +1,57 @@
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.db-button-container {
+    display: flex;
+    flex-direction: row;
+    color: white;
+    font-weight: bold;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.db-button {
+    width: calc(50% - 4rem);
+    height: 30dvh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 15px;
+    transition: .3s;
+}
+
+.db-button:hover{
+    transform: translateY(5px);
+}
+
+.db-button p{
+    font-size: 2rem;
+}
+
+.color-red {
+    background-color: #c00d0d;
+}
+
+.color-red:hover {
+    background-color: #e71112;
+}
+
+.color-white {
+    background-color: white;
+    color: #c00d0d;
+}
+
+.color-white:hover {
+    color: #e71112;
+}
+
+@media (orientation: portrait) {
+    .db-button-container {
+        flex-direction: column;
+    }
+}
