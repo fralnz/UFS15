@@ -21,7 +21,7 @@ public class Config {
         return args -> {
             adminRepo.save(new Admin("pippo@pera.it", "SafePass@8", "Pippo", "Pera"));
             adminRepo.save(new Admin("francesco@lanza.it", "L4nz0n3!", "Francesco", "Lanza"));
-            adminRepo.save(new Admin("giulia@banica.it", "SafePass@8", "Giulia", "Banica"));
+            adminRepo.save(new Admin("giulia@banica.it", "GiuliaAndreea04!", "Giulia", "Banica"));
             adminRepo.save(new Admin("jacopo@grassi.it", "SafePass@8", "Jacopo", "Grassi"));
             adminRepo.save(new Admin("dario@chin.it", "SafePass@8", "Dario", "Chin"));
             adminRepo.save(new Admin("francesco@mazzi.it", "SafePass@8", "Francesco", "Mazzi"));
