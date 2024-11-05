@@ -119,6 +119,57 @@ public class Config {
                     tipoEvento,
                     "https://www.missionescienza.it/wp-content/uploads/2021/05/ambiente.jpg"
             ));
+
+            eventiRepo.save(new Evento(
+                    "Conferenza Archeologica",
+                    "Rivelazioni dal Passato: Scoperte e Tecniche dell'Archeologia Moderna",
+                    "Dario Chin",
+                    LocalDateTime.of(2024, 1, 8, 9, 30),
+                    LocalDateTime.of(2024, 2, 12, 13, 15),
+                    108,
+                    12,
+                    6,
+                    tipoEvento,
+                    "https://www.fontecesia.it/wp-content/uploads/2022/06/carsulae.jpg"
+            ));
+            eventiRepo.save(new Evento(
+                    "Serata a Tema: Arte e Tecnologia",
+                    "Oltre il Visibile: Arte Digitale e Realtà Virtuale al Museo",
+                    "Giulia Andreea Banica",
+                    LocalDateTime.of(2024, 1, 8, 9, 30),
+                    LocalDateTime.of(2024, 2, 12, 13, 15),
+                    108,
+                    12,
+                    6,
+                    tipoEvento,
+                    "https://www.andreaconcas.com/wp-content/uploads/2023/12/ac-refik-anadol.png"
+            ));
+
+            eventiRepo.save(new Evento(
+                    "Tour Notturno con Narrazione Storica",
+                    "Voci dal Passato: Tour Notturno tra Storia e Leggenda",
+                    "Francesco Lanza",
+                    LocalDateTime.of(2024, 1, 8, 9, 30),
+                    LocalDateTime.of(2024, 2, 12, 13, 15),
+                    108,
+                    12,
+                    6,
+                    tipoEvento,
+                    "https://www.rai.it/dl/img/2021/07/30/1600x900_1627650492703_2021.07.30%20-%20Una%20notte%20al%20museo%203%20-%20Il%20segreto%20del%20faraone.jpg"
+            ));
+
+            eventiRepo.save(new Evento(
+                    "Esposizione Interattiva per Famiglie: L'Arte da Toccare",
+                    "Mani nell’Arte: Un’Esperienza Interattiva per le Famiglie",
+                    "Jacopo Grassi",
+                    LocalDateTime.of(2024, 1, 8, 9, 30),
+                    LocalDateTime.of(2024, 2, 12, 13, 15),
+                    108,
+                    12,
+                    6,
+                    tipoEvento,
+                    "https://www.salonemilano.it/sites/default/files/styles/libero/public/images/articles/2021-08/Mostra_Munari_Montessori_H_Tavolo-Interagire-e-Manipolare.jpg.webp?itok=YEmzsTFJ"
+            ));
         };
     }
 }
