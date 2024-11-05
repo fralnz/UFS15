@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Museo ITSAR</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/HomePage.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/ElencoEventi.css}">
+</head>
+<body>
+<div th:replace="fragments/Header :: header"></div>
+
+<div th:replace="fragments/Banner :: banner"></div>
+
+<!--SEZIONE MOSTRE-->
+    <div class="card-container">
+        <a th:each="evento : ${eventi}" th:href="@{/evento/{id}(id=${evento.id})}" class="card">
+            <div class="card-info">
+                <h3 th:text="${evento.titolo}">Titolo Mostra</h3>
+                <p th:text="${evento.tipo.nome}">Tipo Evento</p>
+                <p>
+                    <span th:text="${#temporals.format(evento.dataInizio, 'dd/MM/yyyy')}">Data inizio</span>
+                    <span> - </span>
+                    <span th:text="${#temporals.format(evento.dataFine, 'dd/MM/yyyy')}">Data fine</span>
+                </p>
+            </div>
+            <img th:src="${evento.urlImmagine}" alt="copertina evento">
+        </a>
+    </div>
+</body>
+</html>
