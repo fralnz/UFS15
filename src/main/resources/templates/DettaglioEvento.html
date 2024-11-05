@@ -1,27 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Dettaglio </title>
+    <title>Dettaglio</title>
 </head>
 <body>
+<table>
 
-<div th:each="evento : ${mostre}" >
-    <div class="card-info">
-        <h3 th:text="${evento.titolo}">Titolo Mostra</h3>
-        <p th:text="${evento.tipo.nome}">Tipo Evento</p>
-        <p th:text="${evento.descrizione}">Tipo Evento</p>
-        <p>
-            <span th:text="${#temporals.format(evento.dataInizio, 'dd/MM/yyyy')}">Data inizio</span>
-            <span> - </span>
-            <span th:text="${#temporals.format(evento.dataFine, 'dd/MM/yyyy')}">Data fine</span>
-        </p>
-        <p th:text="${evento.etaMinima}">Tipo Evento</p>
-        <p> La mostra ospita un numero massimo di: </p><p th:text="${evento.limitepersone}"></p>
-        <p>la stanza dove si svolgerà l'evento o la mostra è: </p> <p th:text="${evento.idStanza}"></p>
-    </div>
-    <img th:src="${evento.urlImmagine}" alt="copertina evento">
-</div>
+    <tbody>
+    <tr>
+        <td><p for="titolo">Titolo:</p></td>
+        <td><p type="text" id="titolo" th:text="${evento.titolo}" >Titolo Evento</td>
+    </tr>
 
+    <tr>
+        <td><p for="organizzatore">Organizzatore:</p></td>
+        <td><p type="text" id="organizzatore" th:text="${evento.organizzatore}" ></td>
+    </tr>
+
+    <tr>
+        <td><p for="tipo">Tipo Evento:</p></td>
+        <td>
+            <p id="tipo" th:text="${evento.tipo.nome}"> </p>
+        </td>
+
+    </tr>
+    <tr>
+        <td><p for="descrizione">Descrizione:</p></td>
+        <td><p id="descrizione" th:text="${evento.descrizione}" ></p></td>
+    </tr>
+
+    <tr>
+        <td><p for="dataFine">Data inizio:</p></td>
+        <td>
+            <p type="datetime-local" id="dataInizio"
+                   th:text="${#temporals.format(evento.dataInizio,  'dd/MM/yyyy')}" >
+        </td>
+    </tr>
+
+    <tr>
+        <td><p for="dataFine">Data fine:</p></td>
+        <td>
+            <p type="datetime-local" id="dataFine"
+                   th:text="${#temporals.format(evento.dataFine,  'dd/MM/yyyy')}" >
+        </td>
+    </tr>
+
+    <tr>
+        <td><p for="etaMinima">Età minima:</p></td>
+        <td><p type="number" id="etaMinima" th:text="${evento.etaMinima}" ></td>
+    </tr>
+
+    <tr>
+        <td><p for="limitePersone">Limite persone:</p></td>
+        <td><p type="number" id="limitePersone" th:text="*{evento.limitePersone}" ></td>
+    </tr>
+
+    <tr>
+        <td><p for="idStanza">ID stanza:</p></td>
+        <td><p type="number" id="idStanza" th:text="${evento.idStanza}" ></td>
+    </tr>
+
+
+    </tbody>
+    <a><img th:src="${evento.urlImmagine}" alt="copertina evento">
+    </a>
+
+</table>
 </body>
 </html>
