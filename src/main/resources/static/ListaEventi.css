@@ -1,6 +1,6 @@
 .gestisci-evento-card-container {
     display: flex;
-
+    flex-direction: column;
 }
 
 .gestisci-evento-card {
