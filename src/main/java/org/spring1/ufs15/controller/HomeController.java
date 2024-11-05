@@ -9,6 +9,7 @@ import org.spring1.ufs15.model.Evento;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -42,4 +43,17 @@ public class HomeController {
         model.addAttribute("eventi", eventiList);
         return "HomePage";
     }
+
+    @RequestMapping("/evento/{id}")
+    public String infoEvento(@PathVariable("id") long id, Model model) {
+        Evento evento = eventiRepository.findById(id);
+        if (evento == null) {
+            return (null);
+        }
+        model.addAttribute("evento", evento);
+        model.addAttribute("tipiList", tipoRepository.findAll());
+
+        return "DettagliEvento";
+    }
+
 }

@@ -90,5 +90,4 @@ public class AdminController {
         adminRepository.save(a);
         return "redirect:/admin/utenti/";
     }
-
 }

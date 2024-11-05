@@ -14,10 +14,10 @@
 <div class="vetrina">
     <div class="vetrina-info">
         <h2>Mostre</h2>
-        <a href="">Scopri di più</a>
+        <a th:href="@{/eventi/}">Scopri di più</a>
     </div>
     <div class="card-container">
-        <div th:each="evento : ${mostre}" class="card">
+        <a th:each="evento : ${mostre}" th:href="@{/evento/{id}(id=${evento.id})}" class="card">
             <div class="card-info">
                 <h3 th:text="${evento.titolo}">Titolo Mostra</h3>
                 <p th:text="${evento.tipo.nome}">Tipo Evento</p>
@@ -28,7 +28,7 @@
                 </p>
             </div>
             <img th:src="${evento.urlImmagine}" alt="copertina evento">
-        </div>
+        </a>
     </div>
 </div>
 
@@ -36,10 +36,10 @@
 <div class="vetrina">
     <div class="vetrina-info">
         <h2>Eventi</h2>
-        <a href="">Scopri di più</a>
+        <a th:href="@{/mostre/}">Scopri di più</a>
     </div>
     <div class="card-container">
-        <div th:each="evento : ${eventi}" class="card">
+        <a th:each="evento : ${eventi}" th:href="@{/evento/{id}(id=${evento.id})}" class="card">
             <div class="card-info">
                 <h3 th:text="${evento.titolo}">Titolo Evento</h3>
                 <p th:text="${evento.tipo.nome}">Tipo Evento</p>
@@ -50,7 +50,7 @@
                 </p>
             </div>
             <img th:src="${evento.urlImmagine}" alt="copertina evento">
-        </div>
+        </a>
     </div>
 </div>
 
