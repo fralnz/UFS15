@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dettaglio </title>
+</head>
+<body>
+
+<div th:each="evento : ${mostre}" >
+    <div class="card-info">
+        <h3 th:text="${evento.titolo}">Titolo Mostra</h3>
+        <p th:text="${evento.tipo.nome}">Tipo Evento</p>
+        <p th:text="${evento.descrizione}">Tipo Evento</p>
+        <p>
+            <span th:text="${#temporals.format(evento.dataInizio, 'dd/MM/yyyy')}">Data inizio</span>
+            <span> - </span>
+            <span th:text="${#temporals.format(evento.dataFine, 'dd/MM/yyyy')}">Data fine</span>
+        </p>
+        <p th:text="${evento.etaMinima}">Tipo Evento</p>
+        <p> La mostra ospita un numero massimo di: </p><p th:text="${evento.limitepersone}"></p>
+        <p>la stanza dove si svolgerà l'evento o la mostra è: </p> <p th:text="${evento.idStanza}"></p>
+    </div>
+    <img th:src="${evento.urlImmagine}" alt="copertina evento">
+</div>
+
+</body>
+</html>
