@@ -1,31 +1,47 @@
 <html lang="it">
 <head>
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/index.css}">
-
+    <link rel="stylesheet" type="text/css" th:href="@{/Login.css}">
 </head>
 <body>
+<h1 class="titolo">Museo <img src="https://www.itsrizzoli.it/wp-content/uploads/2022/10/ITS-Favicon-Corto-Positivo.png" alt="logo"/></h1>
+<div class="container">
+    <h1>Login</h1>
+    <table>
+        <form th:action="@{/login/}" method="post" th:object="${admin}">
+            <tr>
+                <td>
+                    <div class="form-control">
+                        <input type="text" name="Mail" required>
+                        <label>
+                            <span style="transition-delay:0ms">Mail</span>
+                        </label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="form-control">
+                        <input type="password" required>
+                        <label>
+                            <span style="transition-delay:0ms">Password</span>
+                        </label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Login">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="/HomePage">Torna alla pagina principale</a>
+                </td>
+            </tr>
+        </form>
 
-<div th:replace="fragments/Header :: header"></div>
-
-<h1>Login per la creazione di Eventi e Mostre</h1>
-
-<table>
-    <form th:action="@{/login/}" method="post" th:object="${admin}">
-        <tr>
-            <td>Mail</td>
-            <td><input type="text" name="Mail"></input></td>
-        </tr>
-
-        <tr>
-            <td>Password</td>
-            <td><input type="password" name="PasswordChiara"></input></td>
-        </tr>
-
-        <tr>
-            <td><input type="submit" value="Login"></input></td>
-        </tr>
-    </form>
-</table>
+    </table>
+</div>
 </body>
 </html>
