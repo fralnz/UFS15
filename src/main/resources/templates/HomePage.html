@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Museo ITSAR</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/HomePage.css}">
+</head>
+<body>
+<h1 class="titolo">Museo  <img src="https://www.itsrizzoli.it/wp-content/uploads/2022/10/ITS-Favicon-Corto-Positivo.png" alt="logo"/></h1>
+<!--SEZIONE MOSTRE-->
+<div class="vetrina">
+    <div class="vetrina-info">
+        <h2>Mostre</h2>
+        <a href="">Scopri di più</a>
+    </div>
+    <div class="card-container">
+        <div th:each="evento : ${mostre}" class="card">
+            <div class="card-info">
+                <h3 th:text="${evento.titolo}">Titolo Mostra</h3>
+                <p th:text="${evento.tipo.nome}">Tipo Evento</p>
+                <p>
+                    <span th:text="${#temporals.format(evento.dataInizio, 'dd/MM/yyyy')}">Data inizio</span>
+                    <span> - </span>
+                    <span th:text="${#temporals.format(evento.dataFine, 'dd/MM/yyyy')}">Data fine</span>
+                </p>
+            </div>
+            <img th:src="${evento.urlImmagine}" alt="copertina evento">
+        </div>
+    </div>
+</div>
+
+<!--SEZIONE EVENTI-->
+<div class="vetrina">
+    <div class="vetrina-info">
+        <h2>Eventi</h2>
+        <a href="">Scopri di più</a>
+    </div>
+    <div class="card-container">
+        <div th:each="evento : ${eventi}" class="card">
+            <div class="card-info">
+                <h3 th:text="${evento.titolo}">Titolo Evento</h3>
+                <p th:text="${evento.tipo.nome}">Tipo Evento</p>
+                <p>
+                    <span th:text="${#temporals.format(evento.dataInizio, 'dd/MM/yyyy')}">Data inizio</span>
+                    <span> - </span>
+                    <span th:text="${#temporals.format(evento.dataFine, 'dd/MM/yyyy')}">Data fine</span>
+                </p>
+            </div>
+            <img th:src="${evento.urlImmagine}" alt="copertina evento">
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

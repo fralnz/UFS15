@@ -22,7 +22,7 @@ public class Evento {
     private Integer id;
 
     @NotNull
-    @Size(min = 1, max = 25)
+    @Size(min = 1, max = 30)
     String titolo;
 
     @NotNull
