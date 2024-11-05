@@ -4,6 +4,28 @@ body {
     font-family: "Alef", sans-serif;
 }
 
+header {
+    position: sticky;
+    top: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    font-size: 1.1rem;
+    padding: 1rem;
+    background-color: black;
+    border-radius: 10px;
+    z-index: 99;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+header a {
+    color: red;
+    font-weight: bold;
+    text-decoration: none;
+}
+
 h1 {
     font-size: 4rem;
     font-weight: 600;
@@ -68,7 +90,7 @@ h3 {
     scrollbar-width: none;
 }
 
-.card-container::-webkit-scrollbar{
+.card-container::-webkit-scrollbar {
     display: none;
 }
 

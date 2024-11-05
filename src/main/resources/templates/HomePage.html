@@ -6,7 +6,10 @@
     <link rel="stylesheet" type="text/css" th:href="@{/HomePage.css}">
 </head>
 <body>
-<h1 class="titolo">Museo  <img src="https://www.itsrizzoli.it/wp-content/uploads/2022/10/ITS-Favicon-Corto-Positivo.png" alt="logo"/></h1>
+<div th:replace="fragments/Header :: header"></div>
+
+<h1 class="titolo">Museo <img src="https://www.itsrizzoli.it/wp-content/uploads/2022/10/ITS-Favicon-Corto-Positivo.png"
+                              alt="logo"/></h1>
 <!--SEZIONE MOSTRE-->
 <div class="vetrina">
     <div class="vetrina-info">
