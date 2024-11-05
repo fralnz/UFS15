@@ -1,6 +1,7 @@
 package org.spring1.ufs15.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import org.antlr.v4.runtime.misc.NotNull;
@@ -15,9 +16,7 @@ public class Admin {
     private Integer id;
 
     @NotNull
-    @Pattern(regexp = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
-            + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$",
-            message = "La mail non e' valida: esempio@mail.it")
+    @Email(message = "La mail non e' valida: esempio@mail.it")
     String mail;
 
     @NotNull
