@@ -5,10 +5,10 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import org.antlr.v4.runtime.misc.NotNull;
 
+import java.security.MessageDigest;
 import java.util.Objects;
 
 @Entity
-//@Table(name = "Admin")
 public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,8 +21,11 @@ public class Admin {
     String mail;
 
     @NotNull
+    @Transient // This field is only used for validation and won't be persisted
     @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[#$@!%&*?])[A-Za-z\\d#$@!%&*?]{8,}$",
             message = "La password deve essere composta da almeno 8 caratteri, contenere almeno una lettera maiuscola, una minuscola, un numero e un carattere speciale")
+    String passwordChiara;
+
     String password;
 
     @NotNull
@@ -36,19 +39,35 @@ public class Admin {
     public Admin() {
     }
 
-    public Admin(String mail, String password, String nome, String cognome) {
+    public Admin(String mail, String passwordChiara, String nome, String cognome) {
         this.mail = mail;
-        this.password = password;
+        this.passwordChiara = passwordChiara;
+        this.password = getSha256String(passwordChiara);
         this.nome = nome;
         this.cognome = cognome;
     }
 
-    public Admin(Integer id, String mail, String password, String nome, String cognome) {
+    public Admin(Integer id, String mail, String passwordChiara, String nome, String cognome) {
         this.id = id;
         this.mail = mail;
-        this.password = password;
+        this.passwordChiara = passwordChiara;
+        this.password = getSha256String(passwordChiara);
         this.nome = nome;
         this.cognome = cognome;
+    }
+
+    // Getters and setters (include only plainPassword setter to hash password)
+    public String getPasswordChiara() {
+        return passwordChiara;
+    }
+
+    public void setPasswordChiara(String passwordChiara) {
+        this.passwordChiara = passwordChiara;
+        this.password = getSha256String(passwordChiara);
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public Integer getId() {
@@ -65,10 +84,6 @@ public class Admin {
 
     public void setMail(String mail) {
         this.mail = mail;
-    }
-
-    public String getPassword() {
-        return password;
     }
 
     public void setPassword(String password) {
@@ -109,9 +124,27 @@ public class Admin {
         return "Admin{" +
                 "id=" + id +
                 ", mail='" + mail + '\'' +
+                ", passwordChiara='" + passwordChiara + '\'' +
                 ", password='" + password + '\'' +
                 ", nome='" + nome + '\'' +
                 ", cognome='" + cognome + '\'' +
                 '}';
+    }
+
+    private String getSha256String(final String base) {
+        try {
+            final MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            final byte[] hash = digest.digest(base.getBytes("UTF-8"));
+            final StringBuilder hexString = new StringBuilder();
+            for (int i = 0; i < hash.length; i++) {
+                final String hex = Integer.toHexString(0xff & hash[i]);
+                if (hex.length() == 1)
+                    hexString.append('0');
+                hexString.append(hex);
+            }
+            return hexString.toString();
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
     }
 }
