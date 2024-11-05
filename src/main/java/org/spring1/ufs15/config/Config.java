@@ -133,7 +133,7 @@ public class Config {
                     "https://www.fontecesia.it/wp-content/uploads/2022/06/carsulae.jpg"
             ));
             eventiRepo.save(new Evento(
-                    "Serata a Tema: Arte e Tecnologia",
+                    "Arte e Innovazione",
                     "Oltre il Visibile: Arte Digitale e Realtà Virtuale al Museo",
                     "Giulia Andreea Banica",
                     LocalDateTime.of(2024, 1, 8, 9, 30),
@@ -146,7 +146,7 @@ public class Config {
             ));
 
             eventiRepo.save(new Evento(
-                    "Tour Notturno con Narrazione Storica",
+                    "Voci della Storia",
                     "Voci dal Passato: Tour Notturno tra Storia e Leggenda",
                     "Francesco Lanza",
                     LocalDateTime.of(2024, 1, 8, 9, 30),
@@ -159,7 +159,7 @@ public class Config {
             ));
 
             eventiRepo.save(new Evento(
-                    "Esposizione Interattiva per Famiglie: L'Arte da Toccare",
+                    "Arte da Toccare",
                     "Mani nell’Arte: Un’Esperienza Interattiva per le Famiglie",
                     "Jacopo Grassi",
                     LocalDateTime.of(2024, 1, 8, 9, 30),
