@@ -46,7 +46,7 @@ public class Evento {
     private LocalDateTime dataFine;
 
     @Min(1)
-    @Max(15)
+    @Max(21)
     Integer etaMinima;
 
     @NotNull

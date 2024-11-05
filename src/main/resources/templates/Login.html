@@ -4,9 +4,10 @@
     <link rel="stylesheet" type="text/css" href="../static/Login.css">
 </head>
 <body>
-<h1 class="titolo">Museo <img src="https://www.itsrizzoli.it/wp-content/uploads/2022/10/ITS-Favicon-Corto-Positivo.png" alt="logo"/></h1>
+<h1 class="titolo">Museo <img src="https://www.itsrizzoli.it/wp-content/uploads/2022/10/ITS-Favicon-Corto-Positivo.png"
+                              alt="logo"/></h1>
 <div class="container">
-    <h1>Login</h1>
+    <h1>Login per la creazione di Eventi e Mostre</h1>
     <table>
         <form th:action="@{/login/}" method="post" th:object="${admin}">
             <tr>
@@ -22,7 +23,7 @@
             <tr>
                 <td>
                     <div class="form-control">
-                        <input type="password" required>
+                        <input type="password" name="PasswordChiara" required>
                         <label>
                             <span style="transition-delay:0ms">Password</span>
                         </label>
@@ -40,7 +41,6 @@
                 </td>
             </tr>
         </form>
-
     </table>
 </div>
 </body>

@@ -27,15 +27,16 @@ public class AdminController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String redirectToDashBoard() {
-        return "redirect:/admin/dashboard";
+        return "redirect:/admin/dashboard/";
     }
 
     @RequestMapping(value = "/dashboard/", method = RequestMethod.GET)
-    public String adminDashboard(HttpSession session) {
+    public String adminDashboard(HttpSession session, Model model) {
         Admin user = (Admin) session.getAttribute("loggedUser");
         if (user == null) {
             return "redirect:/login/";
         }
+        model.addAttribute("user", user);
         return "Dashboard";
     }
 

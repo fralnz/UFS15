@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Museo ITSAR</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/HomePage.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/index.css}">
 </head>
 <body>
 <div th:replace="fragments/Header :: header"></div>
 
-<h1 class="titolo">Museo <img src="https://www.itsrizzoli.it/wp-content/uploads/2022/10/ITS-Favicon-Corto-Positivo.png"
-                              alt="logo"/></h1>
+<div th:replace="fragments/Banner :: banner"></div>
 <!--SEZIONE MOSTRE-->
 <div class="vetrina">
     <div class="vetrina-info">
         <h2>Mostre</h2>
-        <a th:href="@{/eventi/}">Scopri di più</a>
+        <a th:href="@{/mostre/}">Scopri di più</a>
     </div>
     <div class="card-container">
         <a th:each="evento : ${mostre}" th:href="@{/evento/{id}(id=${evento.id})}" class="card">
@@ -36,7 +35,7 @@
 <div class="vetrina">
     <div class="vetrina-info">
         <h2>Eventi</h2>
-        <a th:href="@{/mostre/}">Scopri di più</a>
+        <a th:href="@{/eventi/}">Scopri di più</a>
     </div>
     <div class="card-container">
         <a th:each="evento : ${eventi}" th:href="@{/evento/{id}(id=${evento.id})}" class="card">

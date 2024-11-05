@@ -53,7 +53,35 @@ public class HomeController {
         model.addAttribute("evento", evento);
         model.addAttribute("tipiList", tipoRepository.findAll());
 
-        return "DettagliEvento";
+        return "DettaglioEvento";
+    }
+
+    @RequestMapping("/eventi/")
+    public String elencoEventi(Model model) {
+        Iterable<Evento> eventi = eventiRepository.findAll();
+        List<Evento> eventiList = new ArrayList<>();
+        for (Evento evento : eventi) {
+            if (!Objects.equals(evento.getTipo().getNome(), "Mostra d'Arte")) {
+                eventiList.add(evento);
+            }
+        }
+        model.addAttribute("eventi", eventiList);
+
+        return "ElencoEventi";
+    }
+
+    @RequestMapping("/mostre/")
+    public String elencoMostre(Model model) {
+        Iterable<Evento> eventi = eventiRepository.findAll();
+        List<Evento> eventiList = new ArrayList<>();
+        for (Evento evento : eventi) {
+            if (Objects.equals(evento.getTipo().getNome(), "Mostra d'Arte")) {
+                eventiList.add(evento);
+            }
+        }
+        model.addAttribute("eventi", eventiList);
+
+        return "ElencoEventi";
     }
 
 }
