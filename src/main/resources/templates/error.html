@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/index.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/Footer.css}">
+    <title>Error</title>
+</head>
+<body style="text-align: center;">
+<div th:replace="fragments/Header :: header"></div>
+<div th:replace="fragments/Banner :: banner"></div>
+<h1>Uh Oh!</h1>
+<p>Non dovresti essere qui! clicca <a th:href="@{/}">qui</a> per tornare alla Home</p>
+</body>
+</html>
