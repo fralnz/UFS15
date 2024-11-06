@@ -6,14 +6,11 @@ import org.spring1.ufs15.dao.AdminDao;
 import org.spring1.ufs15.dao.EventoDao;
 import org.spring1.ufs15.dao.TipoDao;
 import org.spring1.ufs15.model.Admin;
-import org.spring1.ufs15.model.Evento;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @Controller
 @RequestMapping("/admin/")
@@ -49,7 +46,6 @@ public class AdminController {
         if (user == null) {
             return "redirect:/login/";
         }
-        List<Admin> adminList;
         if (searchTerm == null || searchTerm.trim().isEmpty()) {
             model.addAttribute("adminList", adminRepository.findAll());
         } else {
@@ -91,7 +87,14 @@ public class AdminController {
         if (session.getAttribute("loggedUser") == null) {
             return "redirect:/login/";
         }
+        Boolean v = adminRepository.findByMail(a.getMail()) != null && !adminRepository.findByMail(a.getMail()).equalsId(a);
+        System.out.println(adminRepository.findByMail(a.getMail()));
         System.out.println(a);
+        System.out.println(a.equalsId(adminRepository.findByMail(a.getMail())));
+        if (v) {
+            model.addAttribute("errorMessage", "Esiste gia' un utente con questa mail!");
+            return "ModificaUtenti";
+        }
         if (bindingResult.hasErrors()) {
             System.out.println(bindingResult.getAllErrors());
 
@@ -114,9 +117,6 @@ public class AdminController {
         Admin admin = adminRepository.findById(id);
         if (loggedUser.equals(admin)) {
             return "ErroreUtenteLoggato";
-        }
-        if (admin == null) {
-            return (null);
         }
         model.addAttribute("admin", admin);
 
