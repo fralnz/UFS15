@@ -58,7 +58,7 @@ classDiagram
 ---
 title: Classi DAO
 ---
-```classDiagram
+classDiagram
     class CrudRepository {
         <<interface>>
         +save(T entity)
