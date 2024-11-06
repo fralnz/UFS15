@@ -49,7 +49,6 @@ public class AdminController {
         if (user == null) {
             return "redirect:/login/";
         }
-        List<Admin> adminList;
         if (searchTerm == null || searchTerm.trim().isEmpty()) {
             model.addAttribute("adminList", adminRepository.findAll());
         } else {
@@ -91,7 +90,14 @@ public class AdminController {
         if (session.getAttribute("loggedUser") == null) {
             return "redirect:/login/";
         }
+        Boolean v = adminRepository.findByMail(a.getMail()) != null && !adminRepository.findByMail(a.getMail()).equalsNotPassword(a);
+        System.out.println(adminRepository.findByMail(a.getMail()));
         System.out.println(a);
+        System.out.println(a.equalsNotPassword(adminRepository.findByMail(a.getMail())));
+        if (v) {
+            model.addAttribute("errorMessage", "Esiste gia' un utente con questa mail!");
+            return "ModificaUtenti";
+        }
         if (bindingResult.hasErrors()) {
             System.out.println(bindingResult.getAllErrors());
 
@@ -114,9 +120,6 @@ public class AdminController {
         Admin admin = adminRepository.findById(id);
         if (loggedUser.equals(admin)) {
             return "ErroreUtenteLoggato";
-        }
-        if (admin == null) {
-            return (null);
         }
         model.addAttribute("admin", admin);
 

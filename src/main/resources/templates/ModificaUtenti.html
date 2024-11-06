@@ -34,8 +34,8 @@
         </tr>
         <tr>
             <td><label for="passwordChiara">Password:</label></td>
-            <td><input type="password" id="passwordChiara" th:field="*{password}" required></td>
-            <td><div th:if="${#fields.hasErrors('nome')}" th:errors="*{password}">Errore in password</div>
+            <td><input type="password" id="passwordChiara" th:field="*{passwordChiara}" required></td>
+            <td><div th:if="${#fields.hasErrors('passwordChiara')}" th:errors="*{passwordChiara}">Errore in password</div>
         </tr>
         <p th:text="${errorMessage}"/>
         <tr>
