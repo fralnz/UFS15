@@ -87,18 +87,30 @@ public class EventiController {
     }
 
     @PostMapping("/modificaEvento/aggiornaEvento/")
-    public String aggiornaEvento(@Valid Evento e, BindingResult bindingResult, HttpSession session) {
+    public String aggiornaEvento(@Valid Evento e, BindingResult bindingResult, Model model, HttpSession session) {
         if (session.getAttribute("loggedUser") == null) {
             return "redirect:/login/";
         }
         System.out.println(e);
         if (bindingResult.hasErrors()) {
             System.out.println(bindingResult.getAllErrors());
-            return (null);
+
+            Evento originalEvento = eventiRepository.findById(e.getId());
+            if (originalEvento == null) {
+                return "redirect:/error";
+            }
+
+            model.addAttribute("evento", e);
+            model.addAttribute("tipiList", tipoRepository.findAll());
+            model.addAttribute("org.springframework.validation.BindingResult.evento", bindingResult);
+
+            return "ModificaEvento";
         }
+
         eventiRepository.save(e);
         return "redirect:/admin/eventi/";
     }
+
 
     @GetMapping("/creaEvento/")
     public String evento(Model model, HttpSession session) {
