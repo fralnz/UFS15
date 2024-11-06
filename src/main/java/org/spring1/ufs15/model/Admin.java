@@ -28,11 +28,13 @@ public class Admin {
     String password;
 
     @NotNull
-    @Size(min = 1, max = 25)
+    @Pattern(regexp = "^[A-Za-z][A-Za-z\\s]*[A-Za-z]$", message = "Il nome non puo' contenere numeri o caratteri speciali")
+    @Size(min = 1, max = 25, message = "Il nome non puo' essere piu lungo di 25 caratteri")
     String nome;
 
     @NotNull
-    @Size(min = 1, max = 25)
+    @Pattern(regexp = "^[A-Za-z][A-Za-z\\s]*[A-Za-z]$", message = "Il cognome non puo' contenere number o caratteri speciali")
+    @Size(min = 1, max = 25, message = "Il cognome non puo' essere piu lungo di 25 caratteri")
     String cognome;
 
     public Admin() {

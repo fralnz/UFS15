@@ -95,11 +95,6 @@ public class EventiController {
         if (bindingResult.hasErrors()) {
             System.out.println(bindingResult.getAllErrors());
 
-            Evento originalEvento = eventiRepository.findById(e.getId());
-            if (originalEvento == null) {
-                return "redirect:/error";
-            }
-
             model.addAttribute("evento", e);
             model.addAttribute("tipiList", tipoRepository.findAll());
             model.addAttribute("org.springframework.validation.BindingResult.evento", bindingResult);

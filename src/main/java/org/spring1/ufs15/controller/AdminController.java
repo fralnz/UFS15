@@ -6,6 +6,7 @@ import org.spring1.ufs15.dao.AdminDao;
 import org.spring1.ufs15.dao.EventoDao;
 import org.spring1.ufs15.dao.TipoDao;
 import org.spring1.ufs15.model.Admin;
+import org.spring1.ufs15.model.Evento;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -83,11 +84,16 @@ public class AdminController {
         if (session.getAttribute("loggedUser") == null) {
             return "redirect:/login/";
         }
-        if (adminRepository.findByMail(a.getMail()) != null) {
+        System.out.println(a);
+        if (bindingResult.hasErrors()) {
+            System.out.println(bindingResult.getAllErrors());
+
             model.addAttribute("admin", a);
-            model.addAttribute("errorMessage", "esiste gia' un utente associato a quell'email");
-            return ("ModificaUtenti");
+            model.addAttribute("org.springframework.validation.BindingResult.admin", bindingResult);
+
+            return "ModificaUtenti";
         }
+
         adminRepository.save(a);
         return "redirect:/admin/utenti/";
     }
