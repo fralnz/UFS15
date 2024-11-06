@@ -9,8 +9,8 @@
 <body>
 <div th:replace="fragments/Header :: header"></div>
 
-<div class="card-container">
-    <div class="text-content">
+<div class="card-container-evento">
+    <div class="text-content-evento">
         <h1><strong><span type="text" id="titolo" th:text="${evento.titolo}"></span></strong></h1>
         <p><strong>Organizzatore:</strong> <span th:text="${evento.organizzatore}"></span></p>
         <p><strong>Tipo Evento:</strong> <span th:text="${evento.tipo.nome}"></span></p>
@@ -21,8 +21,8 @@
         <p><strong>Limite Persone:</strong> <span th:text="${evento.limitePersone}"></span></p>
         <p><strong>Stanza:</strong> <span th:text="${evento.idStanza}"></span></p>
     </div>
-    <div class="image-container">
-        <a><img th:src="${evento.urlImmagine}" alt="copertina evento"></a>
+    <div>
+        <a><img  class="Image-container" th:src="${evento.urlImmagine}" alt="copertina evento"></a>
     </div>
 </div>
 

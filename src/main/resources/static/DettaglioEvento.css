@@ -14,23 +14,24 @@ strong {
     color: white;
 }
 
-
-
-.card-container {
+.card-container-evento {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     gap: 20px;
     padding: 10px;
+    max-width: 1000px;
+    margin: auto;
 }
 
-.text-content {
+.text-content-evento {
     flex: 1;
-    max-width: 100%;
 }
 
-.image-content img {
-    width: calc(50% - 4rem);
+.Image-container {
+    max-width: calc(500px - 4rem);
+    width: 100%;
+    height: auto;
     border-radius: 10px;
-    margin: 2rem;
+    margin: 2rem 0 2rem 2rem;
 }
