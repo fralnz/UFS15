@@ -13,9 +13,9 @@
 <h1>Gestisci Utenti</h1>
 
 <div class="top-bar">
-  <form class="search-form" th:action="@{/admin/eventi/}" method="GET">
+  <form class="search-form" th:action="@{/admin/utenti/{searchTerm}(searchTerm=${searchTerm})}" method="GET">
     <input type="text" name="searchTerm" placeholder="Cerca utenti..."
-           aria-label="Cerca eventi" th:value="${searchTerm}">
+           aria-label="Cerca utenti" th:value="${searchTerm}">
     <button type="submit">Cerca</button>
   </form>
   <a th:href="@{/admin/utenti/creaAdmin/}"><button>Nuovo Admin</button></a>

@@ -13,6 +13,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/admin/")
 public class AdminController {
@@ -42,12 +44,17 @@ public class AdminController {
     }
 
     @RequestMapping("/utenti/")
-    public String gestisciUtenti(Model model, HttpSession session) {
+    public String gestisciUtenti(@RequestParam(required = false) String searchTerm, Model model, HttpSession session) {
         Admin user = (Admin) session.getAttribute("loggedUser");
         if (user == null) {
             return "redirect:/login/";
         }
-        model.addAttribute("adminList", adminRepository.findAll());
+        List<Admin> adminList;
+        if (searchTerm == null || searchTerm.trim().isEmpty()) {
+            model.addAttribute("adminList", adminRepository.findAll());
+        } else {
+            model.addAttribute(adminRepository.searchByAttribute(searchTerm));
+        }
         model.addAttribute("loggedUser", user);
 
         return "GestisciUtenti";

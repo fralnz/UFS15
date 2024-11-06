@@ -4,17 +4,13 @@ import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.spring1.ufs15.dao.EventoDao;
 import org.spring1.ufs15.dao.TipoDao;
-import org.spring1.ufs15.model.Admin;
 import org.spring1.ufs15.model.Evento;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -40,22 +36,6 @@ public class EventiController {
         }
         model.addAttribute("eventi", eventi);
         model.addAttribute("tipiList", tipoRepository.findAll());
-        return "GestisciEventi";
-    }
-
-    @RequestMapping("/{searchTerm}")
-    public String cercaEventi(@PathVariable("searchTerm") String s, Model model, HttpSession session) {
-        if (session.getAttribute("loggedUser") == null) {
-            return "redirect:/login/";
-        }
-        if (s.isEmpty()) {
-            return "redirect:/admin/eventi/";
-        }
-        System.out.println("Cercando eventi con il nome: " + s);
-        List<Evento> eventi = eventiRepository.findByTitolo(s);
-        model.addAttribute("eventi", eventi);
-        model.addAttribute("tipiList", tipoRepository.findAll());
-        model.addAttribute("searchTerm", s);
         return "GestisciEventi";
     }
 
