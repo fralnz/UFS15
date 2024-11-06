@@ -12,11 +12,14 @@
 
 <h1>Gestisci Eventi</h1>
 
-<form class="search-form" th:action="@{/admin/eventi/}" method="GET">
-    <input type="text" name="searchTerm" placeholder="Cerca eventi..."
-           aria-label="Cerca eventi" th:value="${searchTerm}">
-    <button type="submit">Cerca</button>
-</form>
+<div class="top-bar">
+    <form class="search-form" th:action="@{/admin/eventi/}" method="GET">
+        <input type="text" name="searchTerm" placeholder="Cerca eventi..."
+               aria-label="Cerca eventi" th:value="${searchTerm}">
+        <button type="submit">Cerca</button>
+    </form>
+    <a th:href="@{/admin/eventi/creaEvento/}"><button>Nuovo Evento</button></a>
+</div>
 
 <div class="gestisci-evento-card-container">
     <div class="gestisci-evento-card" th:each="evento : ${eventi}">

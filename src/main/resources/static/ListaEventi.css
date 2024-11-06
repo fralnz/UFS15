@@ -1,8 +1,14 @@
+.top-bar{
+    margin: auto 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .search-form {
     display: flex;
     gap: 10px;
     max-width: 500px;
-    margin: auto 4rem;
     padding: 15px 15px 15px 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -26,7 +32,7 @@
     color: #888;
 }
 
-.search-form button {
+button {
     padding: 12px 24px;
     background-color: #c00d0d;
     color: white;
@@ -37,11 +43,11 @@
     transition: background-color 0.3s ease;
 }
 
-.search-form button:hover {
+button:hover {
     background-color: #9a0a0a;
 }
 
-.search-form button:active {
+button:active {
     transform: translateY(1px);
 }
 
@@ -51,7 +57,7 @@
         padding: 10px;
     }
 
-    .search-form button {
+    button {
         width: 100%;
     }
 }
