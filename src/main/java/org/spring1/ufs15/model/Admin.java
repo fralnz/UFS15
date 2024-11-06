@@ -20,7 +20,7 @@ public class Admin {
     String mail;
 
     @NotNull
-    @Transient // This field is only used for validation and won't be persisted
+    @Transient
     @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[#$@!%&*?])[A-Za-z\\d#$@!%&*?]{8,}$",
             message = "La password deve essere composta da almeno 8 caratteri, contenere almeno una lettera maiuscola, una minuscola, un numero e un carattere speciale")
     String passwordChiara;
