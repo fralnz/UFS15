@@ -22,11 +22,11 @@ public class Evento {
     private Integer id;
 
     @NotNull
-    @Size(min = 1, max = 30)
+    @Size(min = 1, max = 30, message = "Il titolo non puo' superare i 30 caratteri")
     String titolo;
 
     @NotNull
-    @Size(min = 1, max = 25)
+    @Size(min = 1, max = 30, message = "L'organizzatore non puo' superare i 30 caratteri")
     String organizzatore;
 
     @ManyToOne
@@ -45,8 +45,8 @@ public class Evento {
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private LocalDateTime dataFine;
 
-    @Min(1)
-    @Max(21)
+    @Min(value = 1, message = "numero non valido")
+    @Max(value = 21, message = "Eta' minima non puo' essere piu grande di 21")
     Integer etaMinima;
 
     @NotNull

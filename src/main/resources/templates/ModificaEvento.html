@@ -19,14 +19,14 @@
             <td><label for="titolo">Titolo:</label></td>
             <td>
                 <input type="text" id="titolo" th:field="*{titolo}" required>
-                <div th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}">Error in titolo</div>
+                <div th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}">Errore in titolo</div>
             </td>
         </tr>
         <tr>
             <td><label for="organizzatore">Organizzatore:</label></td>
             <td>
                 <input type="text" id="organizzatore" th:field="*{organizzatore}" required>
-                <div th:if="${#fields.hasErrors('organizzatore')}" th:errors="*{organizzatore}">Error in organizzatore
+                <div th:if="${#fields.hasErrors('organizzatore')}" th:errors="*{organizzatore}">Errore in organizzatore
                 </div>
             </td>
         </tr>
@@ -40,21 +40,21 @@
                             th:text="${tipoOption.nome}">
                     </option>
                 </select>
-                <div th:if="${#fields.hasErrors('tipo')}" th:errors="*{tipo}">Error in tipo</div>
+                <div th:if="${#fields.hasErrors('tipo')}" th:errors="*{tipo}">Errore in tipo</div>
             </td>
         </tr>
         <tr>
             <td><label for="descrizione">Descrizione:</label></td>
             <td>
                 <textarea id="descrizione" th:field="*{descrizione}" required></textarea>
-                <div th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}">Error in descrizione</div>
+                <div th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}">Errore in descrizione</div>
             </td>
         </tr>
         <tr>
             <td><label for="urlImmagine">Link Copertina:</label></td>
             <td>
                 <input type="text" id="urlImmagine" th:field="*{urlImmagine}">
-                <div th:if="${#fields.hasErrors('urlImmagine')}" th:errors="*{urlImmagine}">Error in urlImmagine</div>
+                <div th:if="${#fields.hasErrors('urlImmagine')}" th:errors="*{urlImmagine}">Errore in urlImmagine</div>
             </td>
         </tr>
         <tr>
@@ -62,7 +62,6 @@
             <td>
                 <input type="datetime-local" id="dataInizio" th:field="*{dataInizio}"
                        th:value="${#temporals.format(evento.dataInizio, 'yyyy-MM-dd''T''HH:mm')}" required>
-                <div th:if="${#fields.hasErrors('dataInizio')}" th:errors="*{dataInizio}">Error in dataInizio</div>
             </td>
         </tr>
         <tr>
@@ -70,21 +69,21 @@
             <td>
                 <input type="datetime-local" id="dataFine" th:field="*{dataFine}"
                        th:value="${#temporals.format(evento.dataFine, 'yyyy-MM-dd''T''HH:mm')}" required>
-                <div th:if="${#fields.hasErrors('dataFine')}" th:errors="*{dataFine}">Error in dataFine</div>
             </td>
         </tr>
+
         <tr>
             <td><label for="etaMinima">Età minima:</label></td>
             <td>
-                <input type="number" id="etaMinima" th:field="*{etaMinima}" required>
-                <div th:if="${#fields.hasErrors('etaMinima')}" th:errors="*{etaMinima}">Error in etaMinima</div>
+                <input type="number" min="1" max="21" id="etaMinima" th:field="*{etaMinima}" required>
+                <div th:if="${#fields.hasErrors('etaMinima')}" th:errors="*{etaMinima}">Errore in etaMinima</div>
             </td>
         </tr>
         <tr>
             <td><label for="limitePersone">Limite persone:</label></td>
             <td>
                 <input type="number" id="limitePersone" th:field="*{limitePersone}" required>
-                <div th:if="${#fields.hasErrors('limitePersone')}" th:errors="*{limitePersone}">Error in limitePersone
+                <div th:if="${#fields.hasErrors('limitePersone')}" th:errors="*{limitePersone}">Errore in limitePersone
                 </div>
             </td>
         </tr>
@@ -92,7 +91,7 @@
             <td><label for="idStanza">ID stanza:</label></td>
             <td>
                 <input type="number" id="idStanza" th:field="*{idStanza}" required>
-                <div th:if="${#fields.hasErrors('idStanza')}" th:errors="*{idStanza}">Error in idStanza</div>
+                <div th:if="${#fields.hasErrors('idStanza')}" th:errors="*{idStanza}">Errore in idStanza</div>
             </td>
         </tr>
         <tr>
