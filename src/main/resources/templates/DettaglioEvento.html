@@ -10,20 +10,24 @@
 <div th:replace="fragments/Header :: header"></div>
 <table>
 
-    <p><strong>Titolo:</strong> <span type="text" id="titolo" th:text="${evento.titolo}" ></span></p>
+    <H1><strong><span type="text" id="titolo" th:text="${evento.titolo}" ></span></strong> </H1>
     <p><strong>Organizzatore: </strong> <span th:text="${evento.organizzatore}"></span></p>
     <p><strong>Tipo Evento: </strong><span th:text="${evento.tipo.nome}" ></span> </p>
     <p><strong>Descrizione: </strong><span th:text="${evento.descrizione}" ></span></p>
     <p><strong>Data Inizio: </strong><span th:text="${#temporals.format(evento.dataInizio,  'dd/MM/yyyy')}"></span> </p>
     <p><strong>Data Fine: </strong> <span th:text="${#temporals.format(evento.dataFine,  'dd/MM/yyyy')}"> </span></p>
     <p><strng>Età Minima:</strng> <span th:text="${evento.etaMinima}"> </span></p>
-    <p><strng>Limite Perosne:</strng> <span th:text="*{evento.limitePersone}"> </span></p>
+    <p><strng>Limite Persone:</strng> <span th:text="*{evento.limitePersone}"> </span></p>
     <p><strng>Stanza:</strng> <span th:text="${evento.idStanza}"> </span></p>
 
     <a><img th:src="${evento.urlImmagine}" alt="copertina evento"></a>
 
+    <p>Torna in dietro</p>
+
+    <div th:replace="fragments/Footer :: footer"></div>
+
+
 </table>
 
-<div th:replace="fragments/Footer :: footer"></div>
 </body>
 </html>
