@@ -115,11 +115,11 @@ public class Admin {
         return Objects.equals(id, admin.id) && Objects.equals(mail, admin.mail) && Objects.equals(password, admin.password) && Objects.equals(nome, admin.nome) && Objects.equals(cognome, admin.cognome);
     }
 
-    public boolean equalsNotPassword(Object o) {
+    public boolean equalsId(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Admin admin = (Admin) o;
-        return Objects.equals(id, admin.id) && Objects.equals(mail, admin.mail) && Objects.equals(nome, admin.nome) && Objects.equals(cognome, admin.cognome);
+        return Objects.equals(id, admin.id);
     }
 
     @Override
