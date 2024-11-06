@@ -6,7 +6,7 @@
 
 **Eventi e Mostre**: si devono gestire gli Eventi e delle Mostre, dovrà essere creata una Agenda degli eventi, pianificare mostre e assegnare gli spazi all’interno del Museo per tali eventi.
 
-## Modelli
+## Classi MVC
 
 ```mermaid
 ---
@@ -52,3 +52,42 @@ classDiagram
         +Tipo(Integer id, String nome)
     }
 ```
+
+```mermaid
+
+---
+title: Classi DAO
+---
+```classDiagram
+    class CrudRepository {
+        <<interface>>
+        +save(T entity)
+        +findById(ID id)
+        +delete(T entity)
+        +findAll() : Iterable<T>
+        // Altri metodi standard di CrudRepository
+    }
+
+    class AdminDao {
+        +Admin checkCredentials(String mail, String password)
+        +Admin findByMail(String mail)
+        +Admin findById(long id)
+    }
+
+    class EventoDao {
+        +List<Evento> getEventiList()
+        +Evento findById(long id)
+        +List<Evento> findByTitolo(String titolo)
+        +List<Evento> searchByTitolo(String titolo)
+    }
+
+    class TipoDao {
+    }
+
+    AdminDao ..|> CrudRepository
+    EventoDao ..|> CrudRepository
+    TipoDao ..|> CrudRepository
+
+```
+
+
