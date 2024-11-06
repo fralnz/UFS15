@@ -91,6 +91,10 @@ classDiagram
 ```
 
 ```mermaid
+---
+title: Classi Controller
+---
+
 classDiagram
     class AdminController {
         +AdminController()
@@ -207,3 +211,5 @@ classDiagram
     LoginController --> BindingResult : uses
 
 ```
+
+
