@@ -94,7 +94,7 @@ public class Config {
 
             eventiRepo.save(new Evento(
                     "Michelangelo",
-                    "Capolavori",
+                    "Immersiva esposizione che esplora l'intero corpus artistico di Michelangelo Buonarroti, dalle sue prime opere giovanili ai capolavori maturi come il 'David' e la 'Cappella Sistina'. L'esposizione si concentra sulla sua maestria nell'utilizzo della pietra e del colore.",
                     "Roma",
                     LocalDateTime.of(2024, 1, 8, 9, 30),
                     LocalDateTime.of(2024, 2, 12, 13, 15),
@@ -103,7 +103,6 @@ public class Config {
                     6,
                     tipoMostra,
                     "https://www.storicang.it/medio/2020/06/25/la-creazione-di-adamo-dettaglio-della-cappella-sistina_884eb509_800x372.jpg"
-
             ));
             eventiRepo.save(new Evento(
                     "Mostra Andy Warhol",

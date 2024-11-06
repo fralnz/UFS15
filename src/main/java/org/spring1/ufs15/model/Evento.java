@@ -33,8 +33,7 @@ public class Evento {
     @JoinColumn(name = "id_tipo", nullable = false)
     private Tipo tipo;
 
-    @NotNull
-    @Size(min = 1)
+    @Size(max = 500, message = "La descrizione non puo' superare i 500 caratteri")
     String descrizione;
 
     @NotNull
