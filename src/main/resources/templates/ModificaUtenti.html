@@ -2,50 +2,62 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Creazione Admin</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/index.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/Footer.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/eventoUtenti.css}">
     <meta charset="UTF-8">
 </head>
 <body>
 
 <div th:replace="fragments/Header :: header"></div>
+<h1 class="titolo">Museo <img src="https://www.itsrizzoli.it/wp-content/uploads/2022/10/ITS-Favicon-Corto-Positivo.png"
+                              alt="logo"/></h1>
 
-<h1>Inserisci Amministratore</h1>
 
-<table>
-    <tbody>
+<div class="container">
     <form th:action="@{/admin/utenti/creaAdmin/}" th:object="${admin}" method="post">
-        <!--    VOGLIO CHE L'ID NON SI VEDA MA VADA COMUNQUE MANDATO    -->
         <input type="hidden" th:field="*{id}"/>
-        <tr>
-            <td><label for="nome">Nome:</label></td>
-            <td><input type="text" id="nome" th:field="*{nome}" required></td>
-            <td><div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">Errore in nome</div>
-        </tr>
-        <tr>
-            <td><label for="cognome">Cognome:</label></td>
-            <td><input type="text" id="cognome" th:field="*{cognome}" required></td>
-            <td><div th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}">Errore in cognome</div>
-        </tr>
-        <tr>
-            <td><label for="mail">Email:</label></td>
-            <td><input type="email" id="mail" th:field="*{mail}" required></td>
-            <td><div th:if="${#fields.hasErrors('mail')}" th:errors="*{mail}">Errore in mail</div>
-        </tr>
-        <tr>
-            <td><label for="passwordChiara">Password:</label></td>
-            <td><input type="password" id="passwordChiara" th:field="*{password}" required></td>
-            <td><div th:if="${#fields.hasErrors('nome')}" th:errors="*{password}">Errore in password</div>
-        </tr>
-        <p th:text="${errorMessage}"/>
-        <tr>
-            <td colspan="2">
-                <button type="submit">Salva Admin</button>
-            </td>
-        </tr>
+        <table>
+            <tbody>
+            <tr>
+                <h1>Inserisci Amministratore</h1>
+            </tr>
+            <tr>
+
+                <td><label for="nome">Nome:</label></td>
+                <td><input type="text" id="nome" th:field="*{nome}" required></td>
+                <td><div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">Errore in nome</div></td>
+            </tr>
+            <tr>
+                <td><label for="cognome">Cognome:</label></td>
+                <td><input type="text" id="cognome" th:field="*{cognome}" required></td>
+                <td><div th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}">Errore in cognome</div></td>
+            </tr>
+            <tr>
+                <td><label for="mail">Email:</label></td>
+                <td><input type="email" id="mail" th:field="*{mail}" required></td>
+                <td><div th:if="${#fields.hasErrors('mail')}" th:errors="*{mail}">Errore in mail</div></td>
+            </tr>
+            <tr>
+                <td><label for="passwordChiara">Password:</label></td>
+                <td><input type="password" id="passwordChiara" th:field="*{password}" required></td>
+                <td><div th:if="${#fields.hasErrors('nome')}" th:errors="*{password}">Errore in password</div></td>
+            </tr>
+            <p th:text="${errorMessage}"/>
+            <tr>
+                <td colspan="2">
+                    <button type="submit">Salva Admin</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <td style="text-align: center;">
+
+                <a href="/HomePage">Torna alla pagina principale</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
     </form>
-    </tbody>
-</table>
+</div>
 
 <div th:replace="fragments/Footer :: footer"></div>
 </body>

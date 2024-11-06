@@ -2,107 +2,112 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Modifica Evento</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/index.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/Footer.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/eventoUtenti.css}">
     <meta charset="UTF-8">
 </head>
 <body>
 <div th:replace="fragments/Banner :: banner"></div>
-<h1>Modifica Evento</h1>
+<h1 class="titolo">Museo <img src="https://www.itsrizzoli.it/wp-content/uploads/2022/10/ITS-Favicon-Corto-Positivo.png"
+                              alt="logo"/></h1>
 
-<form th:action="@{/admin/eventi/modificaEvento/aggiornaEvento/}" th:object="${evento}" method="post">
-<!--    VOGLIO CHE L'ID NON SI VEDA MA VADA COMUNQUE MANDATO    -->
-    <input type="hidden" th:field="*{id}"/>
 
-    <table>
-        <tbody>
-        <tr>
-            <td><label for="titolo">Titolo:</label></td>
-            <td>
-                <input type="text" id="titolo" th:field="*{titolo}" required>
-                <div th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}">Errore in titolo</div>
-            </td>
-        </tr>
-        <tr>
-            <td><label for="organizzatore">Organizzatore:</label></td>
-            <td>
-                <input type="text" id="organizzatore" th:field="*{organizzatore}" required>
-                <div th:if="${#fields.hasErrors('organizzatore')}" th:errors="*{organizzatore}">Errore in organizzatore
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td><label for="tipo">Tipo Evento:</label></td>
-            <td>
-                <select id="tipo" th:field="*{tipo}" required>
-                    <option value="">-- Seleziona Tipo --</option>
-                    <option th:each="tipoOption : ${tipiList}"
-                            th:value="${tipoOption.id}"
-                            th:text="${tipoOption.nome}">
-                    </option>
-                </select>
-                <div th:if="${#fields.hasErrors('tipo')}" th:errors="*{tipo}">Errore in tipo</div>
-            </td>
-        </tr>
-        <tr>
-            <td><label for="descrizione">Descrizione:</label></td>
-            <td>
-                <textarea id="descrizione" th:field="*{descrizione}" required></textarea>
-                <div th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}">Errore in descrizione</div>
-            </td>
-        </tr>
-        <tr>
-            <td><label for="urlImmagine">Link Copertina:</label></td>
-            <td>
-                <input type="text" id="urlImmagine" th:field="*{urlImmagine}">
-                <div th:if="${#fields.hasErrors('urlImmagine')}" th:errors="*{urlImmagine}">Errore in urlImmagine</div>
-            </td>
-        </tr>
-        <tr>
-            <td><label for="dataInizio">Data inizio:</label></td>
-            <td>
-                <input type="datetime-local" id="dataInizio" th:field="*{dataInizio}"
-                       th:value="${#temporals.format(evento.dataInizio, 'yyyy-MM-dd''T''HH:mm')}" required>
-            </td>
-        </tr>
-        <tr>
-            <td><label for="dataFine">Data fine:</label></td>
-            <td>
-                <input type="datetime-local" id="dataFine" th:field="*{dataFine}"
-                       th:value="${#temporals.format(evento.dataFine, 'yyyy-MM-dd''T''HH:mm')}" required>
-            </td>
-        </tr>
+<div class="container">
+    <form th:action="@{/admin/eventi/modificaEvento/aggiornaEvento/}" th:object="${evento}" method="post">
+        <input type="hidden" th:field="*{id}"/>
 
-        <tr>
-            <td><label for="etaMinima">Età minima:</label></td>
-            <td>
-                <input type="number" min="1" max="21" id="etaMinima" th:field="*{etaMinima}" required>
-                <div th:if="${#fields.hasErrors('etaMinima')}" th:errors="*{etaMinima}">Errore in etaMinima</div>
-            </td>
-        </tr>
-        <tr>
-            <td><label for="limitePersone">Limite persone:</label></td>
-            <td>
-                <input type="number" id="limitePersone" th:field="*{limitePersone}" required>
-                <div th:if="${#fields.hasErrors('limitePersone')}" th:errors="*{limitePersone}">Errore in limitePersone
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td><label for="idStanza">ID stanza:</label></td>
-            <td>
-                <input type="number" id="idStanza" th:field="*{idStanza}" required>
-                <div th:if="${#fields.hasErrors('idStanza')}" th:errors="*{idStanza}">Errore in idStanza</div>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <button type="submit">Salva Evento</button>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</form>
+        <table>
+            <tbody>
+            <tr><h1>Modifica Evento</h1></tr>
+            <tr>
+                <td><label for="titolo">Titolo:</label></td>
+                <td>
+                    <input type="text" id="titolo" th:field="*{titolo}" required>
+                    <div th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}">Errore in titolo</div>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="organizzatore">Organizzatore:</label></td>
+                <td>
+                    <input type="text" id="organizzatore" th:field="*{organizzatore}" required>
+                    <div th:if="${#fields.hasErrors('organizzatore')}" th:errors="*{organizzatore}">Errore in organizzatore</div>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="tipo">Tipo Evento:</label></td>
+                <td>
+                    <select id="tipo" th:field="*{tipo}" required>
+                        <option value="">-- Seleziona Tipo --</option>
+                        <option th:each="tipoOption : ${tipiList}"
+                                th:value="${tipoOption.id}"
+                                th:text="${tipoOption.nome}">
+                        </option>
+                    </select>
+                    <div th:if="${#fields.hasErrors('tipo')}" th:errors="*{tipo}">Errore in tipo</div>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="descrizione">Descrizione:</label></td>
+                <td>
+                    <textarea id="descrizione" th:field="*{descrizione}" required></textarea>
+                    <div th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}">Errore in descrizione</div>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="urlImmagine">Link Copertina:</label></td>
+                <td>
+                    <input type="text" id="urlImmagine" th:field="*{urlImmagine}">
+                    <div th:if="${#fields.hasErrors('urlImmagine')}" th:errors="*{urlImmagine}">Errore in urlImmagine</div>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="dataInizio">Data inizio:</label></td>
+                <td>
+                    <input type="datetime-local" id="dataInizio" th:field="*{dataInizio}"
+                           th:value="${#temporals.format(evento.dataInizio, 'yyyy-MM-dd''T''HH:mm')}" required>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="dataFine">Data fine:</label></td>
+                <td>
+                    <input type="datetime-local" id="dataFine" th:field="*{dataFine}"
+                           th:value="${#temporals.format(evento.dataFine, 'yyyy-MM-dd''T''HH:mm')}" required>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="etaMinima">Età minima:</label></td>
+                <td>
+                    <input type="number" min="1" max="21" id="etaMinima" th:field="*{etaMinima}" required>
+                    <div th:if="${#fields.hasErrors('etaMinima')}" th:errors="*{etaMinima}">Errore in etaMinima</div>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="limitePersone">Limite persone:</label></td>
+                <td>
+                    <input type="number" id="limitePersone" th:field="*{limitePersone}" required>
+                    <div th:if="${#fields.hasErrors('limitePersone')}" th:errors="*{limitePersone}">Errore in limitePersone</div>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="idStanza">ID stanza:</label></td>
+                <td>
+                    <input type="number" id="idStanza" th:field="*{idStanza}" required>
+                    <div th:if="${#fields.hasErrors('idStanza')}" th:errors="*{idStanza}">Errore in idStanza</div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit">Salva Evento</button>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">
+                <a href="/HomePage">Torna alla pagina principale</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
 
 <div th:replace="fragments/Footer :: footer"></div>
 </body>
