@@ -26,7 +26,6 @@ classDiagram
         +Admin(Integer id, String mail, String passwordChiara, String nome, String cognome)
     }
 
-classDiagram
     class Evento {
         +Integer id
         +String titolo
@@ -44,7 +43,6 @@ classDiagram
         +Evento(...)
     }
 
-classDiagram
     class Tipo {
         +Integer id
         +String nome
