@@ -14,9 +14,23 @@ strong {
     color: white;
 }
 
-img {
-    width: calc(100% - 4rem);
+
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 10px;
+}
+
+.text-content {
+    flex: 1;
+    max-width: 100%;
+}
+
+.image-content img {
+    width: calc(50% - 4rem);
     border-radius: 10px;
     margin: 2rem;
 }
-

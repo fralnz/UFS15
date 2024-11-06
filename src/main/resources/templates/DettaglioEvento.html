@@ -8,26 +8,30 @@
 </head>
 <body>
 <div th:replace="fragments/Header :: header"></div>
-<table>
 
-    <H1><strong><span type="text" id="titolo" th:text="${evento.titolo}" ></span></strong> </H1>
-    <p><strong>Organizzatore: </strong> <span th:text="${evento.organizzatore}"></span></p>
-    <p><strong>Tipo Evento: </strong><span th:text="${evento.tipo.nome}" ></span> </p>
-    <p><strong>Descrizione: </strong><span th:text="${evento.descrizione}" ></span></p>
-    <p><strong>Data Inizio: </strong><span th:text="${#temporals.format(evento.dataInizio,  'dd/MM/yyyy')}"></span> </p>
-    <p><strong>Data Fine: </strong> <span th:text="${#temporals.format(evento.dataFine,  'dd/MM/yyyy')}"> </span></p>
-    <p><strng>Età Minima:</strng> <span th:text="${evento.etaMinima}"> </span></p>
-    <p><strng>Limite Persone:</strng> <span th:text="*{evento.limitePersone}"> </span></p>
-    <p><strng>Stanza:</strng> <span th:text="${evento.idStanza}"> </span></p>
+<div class="card-container">
+    <div class="text-content">
+        <h1><strong><span type="text" id="titolo" th:text="${evento.titolo}"></span></strong></h1>
+        <p><strong>Organizzatore:</strong> <span th:text="${evento.organizzatore}"></span></p>
+        <p><strong>Tipo Evento:</strong> <span th:text="${evento.tipo.nome}"></span></p>
+        <p><strong>Descrizione:</strong> <span th:text="${evento.descrizione}"></span></p>
+        <p><strong>Data Inizio:</strong> <span th:text="${#temporals.format(evento.dataInizio, 'dd/MM/yyyy')}"></span></p>
+        <p><strong>Data Fine:</strong> <span th:text="${#temporals.format(evento.dataFine, 'dd/MM/yyyy')}"></span></p>
+        <p><strong>Età Minima:</strong> <span th:text="${evento.etaMinima}"></span></p>
+        <p><strong>Limite Persone:</strong> <span th:text="${evento.limitePersone}"></span></p>
+        <p><strong>Stanza:</strong> <span th:text="${evento.idStanza}"></span></p>
+    </div>
+    <div class="image-container">
+        <a><img th:src="${evento.urlImmagine}" alt="copertina evento"></a>
+    </div>
+</div>
 
-    <a><img th:src="${evento.urlImmagine}" alt="copertina evento"></a>
-
-    <p>Torna in dietro</p>
-
-    <div th:replace="fragments/Footer :: footer"></div>
 
 
-</table>
+
+<a href="/"> Torna in dietro</a>
+
+<div th:replace="fragments/Footer :: footer"></div>
 
 </body>
 </html>
