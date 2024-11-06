@@ -4,27 +4,13 @@ body {
     font-family: "Alef", sans-serif;
 }
 
-header {
-    position: sticky;
-    top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    font-size: 1.1rem;
-    padding: 1rem;
-    background-color: rgba(0, 0, 0, 0.76);
-    z-index: 99;
-    margin: 0 auto;
-}
-
 header a {
     color: red;
     font-weight: bold;
     text-decoration: none;
 }
 
-strong{
+strong {
     color: white;
 }
 

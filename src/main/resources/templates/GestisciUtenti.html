@@ -12,14 +12,17 @@
 
 <h1>Gestisci Utenti</h1>
 
-<form class="search-form" th:action="@{/admin/eventi/}" method="GET">
-  <input type="text" name="searchTerm" placeholder="Cerca eventi..."
-         aria-label="Cerca eventi" th:value="${searchTerm}">
-  <button type="submit">Cerca</button>
-</form>
+<div class="top-bar">
+  <form class="search-form" th:action="@{/admin/eventi/}" method="GET">
+    <input type="text" name="searchTerm" placeholder="Cerca utenti..."
+           aria-label="Cerca eventi" th:value="${searchTerm}">
+    <button type="submit">Cerca</button>
+  </form>
+  <a th:href="@{/admin/utenti/creaAdmin/}"><button>Nuovo Admin</button></a>
+</div>
 
 <div class="gestisci-evento-card-container">
-  <div th:each="user : ${adminList}" class="gestisci-evento-card">
+  <div th:each="user : ${adminList}" class="gestisci-evento-card" style="padding: 1rem">
     <h2 th:text="${user.nome}">Nome utente</h2>
     <p><strong>Cognome:</strong> <span th:text="${user.cognome}">Cognome</span></p>
     <p><strong>Mail:</strong> <span th:text="${user.mail}">Mail</span></p>

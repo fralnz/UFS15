@@ -75,7 +75,7 @@ public class AdminController {
             return "redirect:/login/";
         }
         model.addAttribute("admin", new Admin());
-        return "CreazioneUtenti";
+        return "ModificaUtenti";
     }
 
     @PostMapping("/utenti/creaAdmin/")
@@ -86,7 +86,7 @@ public class AdminController {
         if (adminRepository.findByMail(a.getMail()) != null) {
             model.addAttribute("admin", a);
             model.addAttribute("errorMessage", "esiste gia' un utente associato a quell'email");
-            return ("CreazioneUtenti");
+            return ("ModificaUtenti");
         }
         adminRepository.save(a);
         return "redirect:/admin/utenti/";

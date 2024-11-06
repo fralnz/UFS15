@@ -14,9 +14,8 @@ header {
     font-size: 1.1rem;
     padding: 1rem;
     background-color: rgba(0, 0, 0, 0.76);
-    border-radius: 10px;
     z-index: 99;
-    margin: 0 auto;
+    margin: 0;
 }
 
 header a {
