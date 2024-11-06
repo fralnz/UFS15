@@ -9,6 +9,9 @@
 ## Modelli
 
 ```mermaid
+---
+title: Classi Modello
+---
 classDiagram
     class Admin {
         +Integer id
@@ -22,10 +25,6 @@ classDiagram
         +Admin(String mail, String passwordChiara, String nome, String cognome)
         +Admin(Integer id, String mail, String passwordChiara, String nome, String cognome)
     }
-
-```
-
-```mermaid
 
 classDiagram
     class Evento {
@@ -45,9 +44,6 @@ classDiagram
         +Evento(...)
     }
 
-```
-
-```mermaid
 classDiagram
     class Tipo {
         +Integer id
@@ -58,5 +54,3 @@ classDiagram
         +Tipo(Integer id, String nome)
     }
 ```
-
-
