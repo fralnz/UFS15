@@ -2,6 +2,10 @@
 
 **Autori**: Francesco Lanza, Giulia Andreea Banica, Francesco Mazzi, Dario Chin, Jacopo Grassi, Federico Giacomantonio.
 
+<a href="https://github.com/fralnz/UFS15/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=fralnz/UFS15" />
+</a>
+
 ### Traccia
 
 **Eventi e Mostre**: si devono gestire gli Eventi e delle Mostre, dovrà essere creata una Agenda degli eventi, pianificare mostre e assegnare gli spazi all’interno del Museo per tali eventi.
