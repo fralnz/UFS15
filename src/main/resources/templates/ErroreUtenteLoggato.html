@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Errore: sei tu!</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/index.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/Footer.css}">
+</head>
+<body>
+    <h1>Sei tu!</h1>
+    <p>Uh oh! Sembra che stai cercando di modificare l'utente con cui sei loggato!</p>
+    <p>Clicca <a href="/admin/utenti/">qui</a> per tornare indietro oppure fai <a th:href="@{/login/logout/}">logout</a>.</p>
+</body>
+
+<div th:replace="fragments/Footer :: footer"></div>
+</html>

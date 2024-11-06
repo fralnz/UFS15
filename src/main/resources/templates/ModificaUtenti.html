@@ -10,11 +10,13 @@
 
 <div th:replace="fragments/Header :: header"></div>
 
-<h1>Crea Nuovo Amministratore</h1>
+<h1>Inserisci Amministratore</h1>
 
 <table>
     <tbody>
     <form th:action="@{/admin/utenti/creaAdmin/}" th:object="${admin}" method="post">
+        <!--    VOGLIO CHE L'ID NON SI VEDA MA VADA COMUNQUE MANDATO    -->
+        <input type="hidden" th:field="*{id}"/>
         <tr>
             <td><label for="nome">Nome:</label></td>
             <td><input type="text" id="nome" th:field="*{nome}" required></td>

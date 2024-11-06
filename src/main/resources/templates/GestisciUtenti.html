@@ -28,7 +28,7 @@
     <p><strong>Mail:</strong> <span th:text="${user.mail}">Mail</span></p>
     <div class="button-container">
       <a th:href="@{/admin/utenti/eliminaUtente/{id}(id=${user.id})}">Elimina</a>
-      <a th:href="@{/admin/utenti/}">Modifica</a>
+      <a th:href="@{/admin/utenti/modificaAdmin/{id}(id=${user.id})}">Modifica</a>
     </div>
   </div>
 </div>

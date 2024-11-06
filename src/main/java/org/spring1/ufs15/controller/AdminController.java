@@ -63,7 +63,7 @@ public class AdminController {
         System.out.println("utente da eliminare: " + deletedUser);
         System.out.println("sono uguali: " + deletedUser.equals(user));
         if (deletedUser.equals(user)) {
-            return "EliminaUtenteLoggato";
+            return "ErroreUtenteLoggato";
         }
         adminRepository.deleteById(id);
         return "redirect:/admin/utenti/";
@@ -90,5 +90,23 @@ public class AdminController {
         }
         adminRepository.save(a);
         return "redirect:/admin/utenti/";
+    }
+
+    @RequestMapping("/utenti/modificaAdmin/{id}")
+    public String modificaAdmin(@PathVariable("id") long id, Model model, HttpSession session) {
+        Admin loggedUser = (Admin) session.getAttribute("loggedUser");
+        if (loggedUser == null) {
+            return "redirect:/login/";
+        }
+        Admin admin = adminRepository.findById(id);
+        if (loggedUser.equals(admin)) {
+            return "ErroreUtenteLoggato";
+        }
+        if (admin == null) {
+            return (null);
+        }
+        model.addAttribute("admin", admin);
+
+        return "ModificaUtenti";
     }
 }
