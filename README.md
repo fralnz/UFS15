@@ -1,4 +1,4 @@
-# UFS15
+# UFS15 - Museo  <img title="" src="https://www.itsrizzoli.it/wp-content/uploads/2022/10/ITS-Favicon-Corto-Positivo.png" alt="" width="50">
 
 **Autori**: Francesco Lanza, Giulia Andreea Banica, Francesco Mazzi, Dario Chin, Jacopo Grassi, Federico Giacomantonio.
 
