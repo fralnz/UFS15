@@ -20,9 +20,9 @@
 
 <div class="gestisci-evento-card-container">
     <div class="gestisci-evento-card" th:each="evento : ${eventi}">
-        <h2 th:text="${evento.titolo}">Titolo Evento</h2>
         <div class="evento-info" style="display: flex; flex-direction: row; justify-content: space-between">
             <div class="evento-info-testo" style="width: 49%">
+                <h2 th:text="${evento.titolo}">Titolo Evento</h2>
                 <p><strong>Organizzatore:</strong> <span th:text="${evento.organizzatore}">Organizzatore Evento</span>
                 </p>
                 <p><strong>Tipologia:</strong> <span th:text="${evento.tipo?.nome ?: 'Non specificato'}">Tipologia Evento</span>
@@ -39,13 +39,12 @@
                 <p><strong>Et&agrave; Minima:</strong> <span th:text="${evento.etaMinima}">Et&agrave; Minima</span></p>
                 <p><strong>Limite Persone:</strong> <span th:text="${evento.limitePersone}">Limite Persone</span></p>
                 <p><strong>Stanza:</strong> <span th:text="${evento.idStanza}">Numero Stanza</span></p>
+                <div class="button-container">
+                    <a th:href="@{/admin/eventi/eliminaEvento/{id}(id=${evento.id})}">Elimina</a>
+                    <a th:href="@{/admin/eventi/modificaEvento/{id}(id=${evento.id})}">Modifica</a>
+                </div>
             </div>
             <img th:src="${evento.urlImmagine}" alt="copertina evento" style="width: 49%; max-height: 35dvh; object-fit: cover">
-        </div>
-
-        <div class="button-container">
-            <a th:href="@{/admin/eventi/eliminaEvento/{id}(id=${evento.id})}">Elimina</a>
-            <a th:href="@{/admin/eventi/modificaEvento/{id}(id=${evento.id})}">Modifica</a>
         </div>
     </div>
 </div>
