@@ -90,4 +90,120 @@ classDiagram
 
 ```
 
+```mermaid
+classDiagram
+    class AdminController {
+        +AdminController()
+        +String redirectToDashBoard()
+        +String adminDashboard(HttpSession session, Model model)
+        +String gestisciUtenti(Model model, HttpSession session)
+        +String eliminaUtente(long id, HttpSession session)
+        +String creaAdmin(Model model, HttpSession session)
+        +String postCreaAdmin(@Valid Admin a, BindingResult bindingResult, Model model, HttpSession session)
+        +String modificaAdmin(long id, Model model, HttpSession session)
+    }
 
+    class EventoDao {
+        <<interface>>
+    }
+    
+    class TipoDao {
+        <<interface>>
+    }
+    
+    class AdminDao {
+        <<interface>>
+    }
+
+    class HttpSession {
+    }
+
+    class Model {
+    }
+
+    class BindingResult {
+    }
+
+    AdminController --> EventoDao : uses
+    AdminController --> TipoDao : uses
+    AdminController --> AdminDao : uses
+    AdminController --> HttpSession : uses
+    AdminController --> Model : uses
+    AdminController --> BindingResult : uses
+
+    class AdminController {
+        +String redirectToDashBoard()
+        +String adminDashboard(HttpSession session, Model model)
+        +String gestisciUtenti(Model model, HttpSession session)
+        +String eliminaUtente(long id, HttpSession session)
+        +String creaAdmin(Model model, HttpSession session)
+        +String postCreaAdmin(@Valid Admin a, BindingResult bindingResult, Model model, HttpSession session)
+        +String modificaAdmin(long id, Model model, HttpSession session)
+    }
+    
+    class EventiController {
+        +String eventi(String searchTerm, Model model, HttpSession session)
+        +String cercaEventi(String s, Model model, HttpSession session)
+        +String eliminaEvento(long id, HttpSession session)
+        +String modificaEvento(long id, Model model, HttpSession session)
+        +String aggiornaEvento(@Valid Evento e, BindingResult bindingResult, Model model, HttpSession session)
+        +String evento(Model model, HttpSession session)
+    }
+    
+    class HomeController {
+        +String homeRedirect(Model model)
+        +String infoEvento(long id, Model model)
+        +String elencoEventi(Model model)
+        +String elencoMostre(Model model)
+    }
+    
+    class LoginController {
+        +String postLoginPage(Model model, HttpSession session)
+        +String postLogin(@Valid Admin admin, BindingResult bindingResult, HttpSession session)
+        +String postLogout(HttpSession session)
+    }
+
+    class EventoDao {
+        <<interface>>
+    }
+
+    class TipoDao {
+        <<interface>>
+    }
+
+    class AdminDao {
+        <<interface>>
+    }
+
+    class HttpSession {
+    }
+
+    class Model {
+    }
+
+    class BindingResult {
+    }
+
+    AdminController --> AdminDao : uses
+    AdminController --> EventoDao : uses
+    AdminController --> TipoDao : uses
+    AdminController --> HttpSession : uses
+    AdminController --> Model : uses
+    AdminController --> BindingResult : uses
+
+    EventiController --> EventoDao : uses
+    EventiController --> TipoDao : uses
+    EventiController --> HttpSession : uses
+    EventiController --> Model : uses
+    EventiController --> BindingResult : uses
+
+    HomeController --> EventoDao : uses
+    HomeController --> TipoDao : uses
+    HomeController --> Model : uses
+
+    LoginController --> AdminDao : uses
+    LoginController --> HttpSession : uses
+    LoginController --> Model : uses
+    LoginController --> BindingResult : uses
+
+```
