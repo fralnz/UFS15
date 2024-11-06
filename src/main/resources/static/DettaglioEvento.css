@@ -4,6 +4,20 @@ body {
     font-family: "Alef", sans-serif;
 }
 
+header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    font-size: 1.1rem;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.76);
+    z-index: 99;
+    margin: 0;
+}
+
 header a {
     color: red;
     font-weight: bold;
@@ -14,24 +28,32 @@ strong {
     color: white;
 }
 
+p {
+    color: white;
+}
+
 .card-container-evento {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     gap: 20px;
-    padding: 10px;
+    padding: 20px;
     max-width: 1000px;
     margin: auto;
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .text-content-evento {
     flex: 1;
+    color: black;
 }
 
 .Image-container {
-    max-width: calc(500px - 4rem);
-    width: 100%;
+    max-width: 200px;
+    width: 400%;
     height: auto;
-    border-radius: 10px;
-    margin: 2rem 0 2rem 2rem;
+    border-radius: 8px;
+    margin: 0;
 }
