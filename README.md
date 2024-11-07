@@ -10,6 +10,9 @@
 
 **Eventi e Mostre**: si devono gestire gli Eventi e delle Mostre, dovrà essere creata una Agenda degli eventi, pianificare mostre e assegnare gli spazi all’interno del Museo per tali eventi.
 
+### Documentazione
+Puoi trovare la documentazione a [questo link](https://docs.google.com/document/d/1e8Pf7fWnh56HrLVpSJQD9qpKgVbrsqYC/edit?usp=sharing&ouid=105135503871678567263&rtpof=true&sd=true).
+
 ## Classi MVC
 
 ```mermaid
