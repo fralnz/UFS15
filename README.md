@@ -13,6 +13,22 @@
 ### Documentazione
 Puoi trovare la documentazione a [questo link](https://docs.google.com/document/d/1e8Pf7fWnh56HrLVpSJQD9qpKgVbrsqYC/edit?usp=sharing&ouid=105135503871678567263&rtpof=true&sd=true).
 
+## Funzionalità
+Con questo sistema l'utente è in grado di:
+- Fare login come amministratore,
+- Creare nuovi amministratori,
+- Eliminare amministratori,
+- Modificare amministratori,
+- Creare nuovi eventi,
+- Eliminare eventi,
+- Modificare eventi.
+
+### Sicurezza
+Il sistema prevede controlli dei dati a livello back-end e un sistema di hashing utilizzando sha256 per crittare le password degli amministratori.
+
+### Interfaccia Utente
+L'interfaccia utente è realizzata con semplicissimo html e css, collegati tra di loro tramite ThymeLeaf.
+
 ## Classi MVC
 
 ```mermaid
