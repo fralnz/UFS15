@@ -24,10 +24,10 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-color: black;
+    background-color: #101010;
 }
 
-.container {
+.login-container {
     background-color: white;
     padding: 40px;
     border-radius: 10px;
