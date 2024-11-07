@@ -232,7 +232,7 @@ classDiagram
     LoginController --> HttpSession : uses
     LoginController --> Model : uses
     LoginController --> BindingResult : uses
-
 ```
 
-
+## Criticità
+Purtroppo il nostro sistema non prevede molto controllo dei dati a lato front-end con javascript, il che puo’ comportare problemi di sicurezza e di performance da parte del back-end.
