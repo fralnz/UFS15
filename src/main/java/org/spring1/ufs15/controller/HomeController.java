@@ -48,7 +48,7 @@ public class HomeController {
     public String infoEvento(@PathVariable("id") long id, Model model) {
         Evento evento = eventiRepository.findById(id);
         if (evento == null) {
-            return (null);
+            return ("redirect:/");
         }
         model.addAttribute("evento", evento);
         model.addAttribute("tipiList", tipoRepository.findAll());
