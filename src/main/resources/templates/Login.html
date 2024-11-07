@@ -2,11 +2,12 @@
 <head>
     <title>Login</title>
     <link rel="stylesheet" type="text/css" th:href="@{/Login.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/Header.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/Footer.css}">
 </head>
 <body>
-<h1 class="titolo">Museo <img src="https://www.itsrizzoli.it/wp-content/uploads/2022/10/ITS-Favicon-Corto-Positivo.png"
-                              alt="logo"/></h1>
+<div th:replace="fragments/Header :: header"></div>
+<div th:replace="fragments/Banner :: banner"></div>
 <div class="login-container">
     <h1>Login per la creazione di Eventi e Mostre</h1>
     <table>
