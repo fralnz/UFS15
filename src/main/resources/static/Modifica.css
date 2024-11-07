@@ -1,20 +1,22 @@
+.container-eu {
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin: 2rem auto;
+    background-color: #202020;
+    color: white;
+}
+
 form {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 1rem;
-    background-color: #202020;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    max-width: 500px;
-    margin: 2rem auto;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    margin: 1rem 0;
 }
 
 td {
@@ -28,7 +30,11 @@ label {
 
 input[type="text"],
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="datetime-local"],
+input[type="number"],
+textarea,
+select {
     width: 100%;
     padding: 0.5rem;
     border: 1px solid #ccc;
@@ -49,4 +55,13 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
     background-color: #d43f1a;
+}
+
+a {
+    color: #ee4b2b;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
