@@ -23,10 +23,12 @@ public class Evento {
 
     @NotNull
     @Size(min = 1, max = 30, message = "Il titolo non puo' superare i 30 caratteri")
+    @Pattern(regexp = "^\\s*$", message = "Il campo non può contenere solo spazi vuoti")
     String titolo;
 
     @NotNull
     @Size(min = 1, max = 30, message = "L'organizzatore non puo' superare i 30 caratteri")
+    @Pattern(regexp = "^\\s*$", message = "L'organizzatore non può contenere solo spazi vuoti")
     String organizzatore;
 
     @ManyToOne
