@@ -10,8 +10,6 @@
 <body>
 <div th:replace="fragments/Header :: header"></div>
 
-<div th:replace="fragments/Banner :: banner"></div>
-
 <!--SEZIONE MOSTRE-->
     <div class="card-container">
         <a th:each="evento : ${eventi}" th:href="@{/evento/{id}(id=${evento.id})}" class="card">
